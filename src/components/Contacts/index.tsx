@@ -5,27 +5,27 @@ import { BsLinkedin } from "react-icons/bs"
 
 const Contacts = () => {
     return (
-        <section id='contacts' className="flex flex-col w-full py-3 mb-10">
-            <h1 className="font-bold text-xl ">Contato</h1>
-            <div className='flex'>
-                <div className='bg-cor-terciaria h-28 w-1 mx-2'></div>
-                <div className='flex flex-col gap-1'>
+        <section id='contacts' className="flex flex-col w-full py-3 mb-10 gap-3">
+            <h1 className="font-bold text-2xl ">Contato</h1>
+            <div className='flex gap-1'>
+                <div className='bg-cor-terciaria h-[10.5rem] w-1 mx-2'></div>
+                <div className='flex flex-col gap-3 py-2'>
                     <div className='flex items-center gap-3'>
-                        <MdOutlineMailOutline className='' size={22} />
-                        <p className="">guimota22@gmail.com</p>
+                        <MdWhatsapp className='w-7 h-7' />
+                        <p className="font-medium text-lg">(69) 99268-7447</p>
                     </div>
                     <div className='flex items-center gap-3'>
-                        <MdWhatsapp className='' size={22} />
-                        <p className="">(69) 99268-7447</p>
+                        <MdOutlineMailOutline className='w-7 h-7' />
+                        <p className="font-medium text-lg">guimota22@gmail.com</p>
                     </div>
-                    <div className='flex items-center gap-3'>
-                        <BsLinkedin className='' size={22} />
-                        <a className="" target='_blank' >fazer...</a>
-                    </div>
-                    <div className='flex items-center gap-3'>
-                        <BsGithub className='' size={22} />
-                        <a href='github.com/guimotab' target='_blank' className="">github.com/guimotab</a>
-                    </div>
+                    <a href="https://www.linkedin.com/in/guimotab/" className="flex items-center gap-3" target='_blank' >
+                        <BsLinkedin className='w-7 h-7' />
+                        <p className='font-medium text-lg'>linkedin/in/guimotab</p>
+                    </a>
+                    <a href='https://github.com/guimotab' target='_blank' className="flex items-center gap-3">
+                        <BsGithub className='w-7 h-7' />
+                        <p className='font-medium text-lg'>github.com/guimotab </p>
+                    </a>
                 </div>
             </div>
         </section>

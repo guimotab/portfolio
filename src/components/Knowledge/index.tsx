@@ -8,13 +8,17 @@ import { BiLogoJava } from "react-icons/bi"
 import { BiLogoGit } from "react-icons/bi"
 import { BiLogoMongodb } from "react-icons/bi"
 
-const Knowledge = () => {
+interface KnowledgeProps{
+    setViewKnowledges: React.Dispatch<React.SetStateAction<string>>
+}
+
+const Knowledge = ({setViewKnowledges}:KnowledgeProps) => {
     const knowledgesLogo = [
         {
             name: "Typescript",
             logo: <BiLogoTypescript size={70} className="text-white mt-1" />
         }, {
-            name: "Javacript",
+            name: "Javascript",
             logo: <BiLogoJavascript size={70} className="text-white mt-1" />
         }, {
             name: "Tailwind",
@@ -32,12 +36,13 @@ const Knowledge = () => {
 
     ]
     return (
-        <section id="knowledge" className="flex flex-col py-5 w-full gap-4">
+        <section className="flex flex-col py-5 w-full gap-5">
             <h1 className="font-bold text-2xl">Conhecimentos</h1>
-            <div className="flex flex-wrap justify-between gap-4 px-20">
+            <div className="flex flex-wrap justify-evenly gap-4 px-20">
                 {knowledgesLogo.map((item, index) =>
                     <div
                         key={index}
+                        onClick={event=>setViewKnowledges(item.name)}
                         className="flex flex-col items-center bg-cor-terciaria max-w-[14rem] w-full rounded-lg px-14 py-6 hover:shadow-[#0056b880] hover:shadow-lg hover:animate-growKnowledges hover:cursor-pointer">
                         <div className="flex flex-col items-center">
                             <p className="text-white font-medium h-4">Certificado</p>

@@ -4,17 +4,24 @@ import Contacts from "../Contacts"
 import Knowledge from "../Knowledge"
 import Projects from "../Projects"
 
-const Main = () => {
-    return (
-        <main className="flex flex-col items-center gap-5 ">
-            <Apresentation />
-            {/* <div className="w-72 h-0.5 bg-cor-terciaria"></div> */}
-            <AboutMe />
-            <Knowledge />
-            <Projects />
-            <Contacts />
+interface MainProps {
+    setViewKnowledges: React.Dispatch<React.SetStateAction<string>>
+    openImage: string
+    setOpenImage: React.Dispatch<React.SetStateAction<string>>
+}
 
-        </main>
+const Main = ({ setViewKnowledges, openImage, setOpenImage }: MainProps) => {
+
+
+    return (
+        <div className="flex flex-col items-center gap-5 max-w-7xl w-screen px-2 z-10">
+            <Apresentation />
+            <AboutMe />
+            <Knowledge setViewKnowledges={setViewKnowledges} />
+            <Projects openImage={openImage} setOpenImage={setOpenImage} />
+            <Contacts />
+        </div>
+
     )
 }
 
