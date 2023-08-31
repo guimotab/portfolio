@@ -28,7 +28,7 @@ code {
 @layer components{
   /* Header */
   .animacao-risco-texto{
-    @apply  after:block after:absolute after:bottom-0 after:w-0 after:h-[2px] hover:after:w-full hover:after:bg-cor-secundaria hover:after:animate-growToRight
+    @apply  after:block after:absolute after:bottom-0 after:w-0 after:h-[2px] hover:after:w-full hover:after:animate-growToRight hover:after:bg-cor-secundaria dark:hover:after:bg-cor-darkHover
   }
   
 }

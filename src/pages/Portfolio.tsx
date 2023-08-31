@@ -26,7 +26,7 @@ function Portfolio() {
     const imageScreen = document.getElementById('imgScreen')!
     if (event.target !== imageScreen) {
       setOpenImage("")
-      body.className = "flex flex-col items-center h-full bg-cor-clara overflow-x-hidden"
+      body.className = "overflow-x-hidden"
     }
   }
   useEffect(() => {
@@ -52,15 +52,15 @@ function Portfolio() {
     <div className="flex relative flex-col w-screen">
       {openImage !== "" ?
         <div id="divImgScreen" onClick={event => closeImageOnScreen(event)} className="absolute flex items-center justify-center z-30 left-0 top-60 h-screen w-screen">
-          <img id="imgScreen" src={openImage} alt="imagem-projeto" className="rounded-lg border-cor-terciaria border-2" />
+          <img id="imgScreen" src={openImage} alt="imagem-projeto" className="rounded-lg border-cor-terciaria border-2 dark:border-cor-darkTerciaria" />
         </div> :<></>
       }
       {rollTopPage ?
           <div className="fixed self-center max-w-[110rem] h-full w-full bg-red z-0">
-            <BsFillArrowUpCircleFill onClick={event=>scrollWindow("#header")} size={45} className="absolute bottom-20 right-0 text-cor-terciaria z-20 hover:cursor-pointer"></BsFillArrowUpCircleFill>
+            <BsFillArrowUpCircleFill onClick={event=>scrollWindow("#header")} size={45} className="absolute bottom-20 right-0 text-cor-terciaria z-20 hover:cursor-pointer dark:text-gray-200"></BsFillArrowUpCircleFill>
           </div> : <></>}
       {viewKnowledges === "" ?
-        <div className="flex flex-col items-center h-full w-full bg-cor-clara">
+        <div className="flex flex-col items-center h-full w-full bg-cor-clara dark:bg-cor-darkPrimaria">
           <Header />
           <Main setViewKnowledges={setViewKnowledges} openImage={openImage} setOpenImage={setOpenImage} />
 

@@ -27,7 +27,7 @@ const Certification = ({ viewKnowledges, setViewKnowledges, openImage, setOpenIm
     function openImageOnScreen() {
         const body = document.getElementById('body')!
         setOpenImage(url)
-        body.className = "flex flex-col items-center h-full bg-cor-clara overflow-x-hidden overflow-y-hidden"
+        body.className = "overflow-x-hidden overflow-y-hidden"
     }
     return (
         <main className="flex flex-col gap-3 items-center w-full">

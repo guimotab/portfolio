@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  darkMode: 'class',
   content: [
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
@@ -52,13 +53,13 @@ module.exports = {
             opacity: "1"
           },
           "100%": {
-            transform: "translateY(10px)",
+            transform: "translateY(15px)",
             opacity: "0"
           }
         },
         slideInTop: {
           "0%": {
-            transform: "translateY(-10px)",
+            transform: "translateY(-15px)",
             opacity: "0"
           },
           "100%": {
@@ -73,8 +74,8 @@ module.exports = {
         growProjects: "scaleProjects 0.4s ease-in-out both",
         growToRight: "scaleToRigth 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both",
         shadowPopProject: "shadowPopBl 0.3s 0.2s cubic-bezier(0.470, 0.000, 0.745, 0.715) both",
-        slideOutTheme: "slideOutBottom 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both",
-        slideinTheme: "slideInTop 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both"
+        slideOutTheme: "slideOutBottom 0.3s cubic-bezier(0.550, 0.085, 0.680, 0.530) both",
+        slideinTheme: "slideInTop 0.3s 0.3s cubic-bezier(0.550, 0.085, 0.680, 0.530) both"
       },
       colors: {
         cor: {
@@ -85,8 +86,11 @@ module.exports = {
           outline: '#011e42',
           hover: '#1355a0',
           erro: "#b92626",
-          aside: "#1e344d",
-        }
+          darkPrimaria: "#000f24",
+          darkSecundaria: "#1a4a8a",
+          darkTerciaria: "#e7e7e7",
+          darkHover: "#3067af",
+        },
       },
       fontFamily: {
         primaria: ["Work Sans, sans-serif"],

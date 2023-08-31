@@ -17,7 +17,7 @@ const Projects = ({openImage, setOpenImage}: ProjectsProps) => {
             linkViewProject: "https://guibank.vercel.app/",
             linkViewCode: "https://github.com/guimotab/GuiBank-Mongodb",
             logosTechnologies: findLogo(["Typescript", "Css", "Html", "Tailwind", "MongoDB"])!,
-            support: [<MdSmartphone size={30} className='text-gray-400' />, <MdComputer size={30} className='text-gray-400' />]
+            support: [<MdSmartphone size={30} className='text-gray-400 dark:text-gray-200' />, <MdComputer size={30} className='text-gray-400 dark:text-gray-200' />]
         }, {
             imageProject: "../images/OrganoTable.jpg",
             title: "OrganoTable",
@@ -26,7 +26,7 @@ const Projects = ({openImage, setOpenImage}: ProjectsProps) => {
             linkViewProject: "https://organo-table.vercel.app/",
             linkViewCode: "https://github.com/guimotab/OrganoTable",
             logosTechnologies: findLogo(["Typescript", "React", "Tailwind"])!,
-            support: [<MdComputer size={30} className='text-gray-400' />]
+            support: [<MdComputer size={30} className='text-gray-400 dark:text-gray-200' />]
         }, {
             imageProject: "../images/PongGame.jpg",
             title: "Pong Game",
@@ -35,13 +35,13 @@ const Projects = ({openImage, setOpenImage}: ProjectsProps) => {
             linkViewProject: "https://pong-game-blue.vercel.app/",
             linkViewCode: "https://github.com/guimotab/Pong-Game",
             logosTechnologies: findLogo(["Javascript", "Css", "Html"])!,
-            support: [<MdComputer size={30} className='text-gray-400' />]
+            support: [<MdComputer size={30} className='text-gray-400 dark:text-gray-200' />]
         },
     ]
     return (
         <section id='projects' className="flex flex-col items-center w-full z-0 ">
             <div className='flex flex-col items-center gap-6 max-w-7xl w-full'>
-                <h1 className='self-start font-bold text-2xl'>Projetos</h1>
+                <h1 className='self-start font-bold text-2xl dark:text-gray-200'>Projetos</h1>
                 <div className='grid grid-cols-2 w-full justify-between gap-5'>
                     {logos.map((item, index) =>
                         <CardsProjects
