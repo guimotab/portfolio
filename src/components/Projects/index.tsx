@@ -39,10 +39,10 @@ const Projects = ({openImage, setOpenImage}: ProjectsProps) => {
         },
     ]
     return (
-        <section id='projects' className="flex flex-col items-center w-full z-0 ">
+        <section id='projects' className="flex flex-col items-center w-full z-0">
             <div className='flex flex-col items-center gap-6 max-w-7xl w-full'>
                 <h1 className='self-start font-bold text-2xl dark:text-gray-200'>Projetos</h1>
-                <div className='grid grid-cols-2 w-full justify-between gap-5'>
+                <div className='grid grid-cols-1 w-full justify-between gap-5 lg:grid-cols-2'>
                     {logos.map((item, index) =>
                         <CardsProjects
                             key={index}

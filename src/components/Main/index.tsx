@@ -14,7 +14,7 @@ const Main = ({ setViewKnowledges, openImage, setOpenImage }: MainProps) => {
 
 
     return (
-        <div className="flex flex-col items-center gap-5 max-w-7xl w-screen px-2 z-10">
+        <div className="flex flex-col items-center gap-5 max-w-[86rem] w-screen z-10 px-8 sm:px-24">
             <Apresentation />
             <AboutMe />
             <Knowledge setViewKnowledges={setViewKnowledges} />

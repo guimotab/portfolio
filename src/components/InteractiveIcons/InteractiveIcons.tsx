@@ -9,7 +9,7 @@ interface InteractiveIconsProps {
 
 const InteractiveIcons = ({ logo, divClass }: InteractiveIconsProps) => {
     return (
-        <div className="w-full mt-10">
+        <div className="flex justify-center w-20 mt-10">
             <div className={`${divClass}`}>
                 {logo.jsx}
             </div>

@@ -43,9 +43,9 @@ const Apresentation = () => {
     ]
     return (
         <section className="flex flex-col items-center w-full max-w-5xl mt-8">
-            <div className="flex self-center items-center gap-5">
-                <img src="../images/eu.jpg" alt="Minha Imagem" className="w-[15rem] rounded-full border-2 border-cor-terciaria dark:border-cor-darkTerciaria" />
-                <div className="flex flex-col">
+            <div className="flex flex-col md:flex-row self-center items-center gap-5">
+                <img src="../images/eu.jpg" alt="Minha Imagem" className="w-full max-w-[15rem] rounded-full border-2 border-cor-terciaria dark:border-cor-darkTerciaria" />
+                <div className="flex flex-col items-center md:items-start min-w-fit">
                     <h1 className="font-bold text-2xl dark:text-cor-darkTerciaria">Olá, eu sou Guilherme Mota</h1>
                     <h2 className="text-lg font-medium dark:text-cor-darkTerciaria">Desenvolvedor Front-End</h2>
                     <a
@@ -55,7 +55,7 @@ const Apresentation = () => {
                     </a>
                 </div>
             </div>
-            <div className="flex justify-between w-full max-w-4xl">
+            <div className="flex flex-wrap justify-between w-full max-w-4xl">
                 {logos.map((logo, index) =>
                     <InteractiveIcons logo={logo} divClass={logo.div} key={index} />
                 )}

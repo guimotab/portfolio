@@ -13,20 +13,16 @@ function Portfolio() {
   document.addEventListener('scroll', event => {
     if (window.scrollY > 400) {
       setRollTopPage(true)
-
     } else {
       setRollTopPage(false)
     }
-
   })
-
-
   function closeImageOnScreen(event: React.MouseEvent<HTMLDivElement, MouseEvent>) {
     const body = document.getElementById('body')!
     const imageScreen = document.getElementById('imgScreen')!
     if (event.target !== imageScreen) {
       setOpenImage("")
-      body.className = "overflow-x-hidden"
+      body.classList.remove("overflow-y-hidden")
     }
   }
   useEffect(() => {
@@ -45,20 +41,19 @@ function Portfolio() {
     }
     if (window.scrollY > 400) {
       setRollTopPage(true)
-    } 
+    }
   }, [openImage])
   return (
 
     <div className="flex relative flex-col w-screen">
       {openImage !== "" ?
         <div id="divImgScreen" onClick={event => closeImageOnScreen(event)} className="absolute flex items-center justify-center z-30 left-0 top-60 h-screen w-screen">
-          <img id="imgScreen" src={openImage} alt="imagem-projeto" className="rounded-lg border-cor-terciaria border-2 dark:border-cor-darkTerciaria" />
-        </div> :<></>
+          <img id="imgScreen" src={openImage} alt="imagem-projeto" className="rounded-lg border-cor-terciaria px-8 md:px-20 xl:px-0 border-2 dark:border-none dark:rounded-lg" />
+        </div> : <></>
       }
       {rollTopPage ?
-          <div className="fixed self-center max-w-[110rem] h-full w-full bg-red z-0">
-            <BsFillArrowUpCircleFill onClick={event=>scrollWindow("#header")} size={45} className="absolute bottom-20 right-0 text-cor-terciaria z-20 hover:cursor-pointer dark:text-gray-200"></BsFillArrowUpCircleFill>
-          </div> : <></>}
+        <BsFillArrowUpCircleFill onClick={event => scrollWindow("#header")} size={45} className="fixed bottom-20 right-10 text-cor-terciaria z-20 hover:cursor-pointer dark:text-gray-200"></BsFillArrowUpCircleFill>
+        : <></>}
       {viewKnowledges === "" ?
         <div className="flex flex-col items-center h-full w-full bg-cor-clara dark:bg-cor-darkPrimaria">
           <Header />

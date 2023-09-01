@@ -38,7 +38,7 @@ const Knowledge = ({setViewKnowledges}:KnowledgeProps) => {
     return (
         <section className="flex flex-col py-5 w-full gap-5">
             <h1 className="font-bold text-2xl dark:text-gray-200">Conhecimentos</h1>
-            <div className="flex flex-wrap justify-evenly gap-4 px-20">
+            <div className="flex flex-wrap justify-evenly gap-4 lg:px-20">
                 {knowledgesLogo.map((item, index) =>
                     <div
                         key={index}
