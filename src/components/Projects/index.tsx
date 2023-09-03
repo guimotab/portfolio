@@ -7,6 +7,14 @@ interface ProjectsProps{
     setOpenImage: React.Dispatch<React.SetStateAction<string>>
 }
 
+/* 
+
+
+Olhar pasta do precisa mudar ainda
+
+
+*/
+
 const Projects = ({openImage, setOpenImage}: ProjectsProps) => {
     const logos = [
         {

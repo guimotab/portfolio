@@ -20,7 +20,7 @@ const CardsProjects = ({ imageProject, altProject, title, subtitle, linkViewProj
         body.classList.add("overflow-y-hidden") 
     }
     return (
-        <div className="flex flex-col gap-4 border border-cor-terciaria h-full rounded-lg bg-white dark:bg-cor-terciaria px-8 py-4 shadow-gray-600 dark:shadow-none shadow-lg opacity-60 hover:opacity-100 hover:animate-growProjects">
+        <div className="flex flex-col gap-4 border border-cor-terciaria h-full rounded-lg bg-white dark:bg-cor-terciaria px-8 py-4 shadow-gray-600 dark:shadow-none shadow-lg lg:opacity-60 hover:opacity-100 hover:animate-growProjects">
             <div className="flex flex-col gap-2">
                 <h2 className="font-semibold text-xl dark:text-gray-200">{title}</h2>
                 <img src={imageProject} alt={altProject} onClick={event => openImageOnScreen()} className="rounded-lg border-cor-terciaria dark:border-cor-darkHover border-2 dark:border-4 cursor-pointer hover:animate-shadowPopProject" />

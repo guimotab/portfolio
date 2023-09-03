@@ -3,8 +3,13 @@ import { BsLinkedin } from "react-icons/bs"
 import { BsWhatsapp } from "react-icons/bs"
 import { BsFillSunFill } from "react-icons/bs"
 import { BsMoonFill } from "react-icons/bs"
+import { BiMenu } from "react-icons/bi"
 import scrollWindow from "../../shared/utils/scrollWindow"
-const Header = () => {
+
+interface HeaderProps{
+  setAside: React.Dispatch<React.SetStateAction<boolean>>
+}
+const Header = ({setAside}:HeaderProps) => {
   function changeTheme(themeMode: string) {
     const body = document.getElementById("body")!
     const divDarkMode = document.getElementById("divDarkMode")!
@@ -20,20 +25,19 @@ const Header = () => {
     }
   }
   return (
-    <header id="header" className="flex justify-center py-8 md:py-4 w-screen dark:bg-[#000e20] sm:px-24 px-8">
+    <header id="header" className="flex justify-center py-4 w-screen dark:bg-[#000e20] sm:px-24 px-8">
       <div className="flex items-center justify-between w-full max-w-7xl">
         <div className="flex items-center gap-5">
-          <div className="w-7 h-7">
-            <div className="relative">
-              <div id="divWhiteMode" className="hidden dark:block" onClick={event => changeTheme("white")}>
-                <BsFillSunFill id="themeWhite" className="text-cor-terciaria z-10 w-8 h-8 md:w-7 md:h-7 dark:text-cor-darkTerciaria " />
-              </div>
-              <div id="divDarkMode" className="cursor-pointer dark:hidden" onClick={event => changeTheme("dark")}>
-                <BsMoonFill id="themeDark" className="text-cor-terciaria z-10 w-7 h-7 md:w-6 md:h-6 dark:text-cor-darkTerciaria cursor-pointer" />
-              </div>
+          <BiMenu className="md:hidden w-12 h-12 text-cor-terciaria dark:text-cor-darkTerciaria" onClick={event=>setAside(true)}/>
+          <div className="relative w-7 h-7">
+            <div id="divWhiteMode" className="hidden dark:block" onClick={event => changeTheme("white")}>
+              <BsFillSunFill id="themeWhite" className="text-cor-terciaria z-10 w-8 h-8 md:w-7 md:h-7 dark:text-cor-darkTerciaria " />
+            </div>
+            <div id="divDarkMode" className="cursor-pointer dark:hidden" onClick={event => changeTheme("dark")}>
+              <BsMoonFill id="themeDark" className="text-cor-terciaria z-10 w-7 h-7 md:w-6 md:h-6 dark:text-cor-darkTerciaria cursor-pointer" />
             </div>
           </div>
-          <h1 className="block md:hidden lg:block text-2xl font-semibold dark:text-cor-darkTerciaria">Guilherme Mota</h1>
+          <h1 className="hidden lg:block text-2xl font-semibold dark:text-cor-darkTerciaria">Guilherme Mota</h1>
         </div>
         <div className="hidden md:flex gap-3 items-center">
           <a onClick={event => scrollWindow("#about_me")} className="relative h-6 text-lg font-medium cursor-pointer after:content-[' '] animacao-risco-texto dark:text-cor-darkTerciaria ">Sobre Mim</a>

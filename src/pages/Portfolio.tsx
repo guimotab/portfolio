@@ -9,7 +9,7 @@ function Portfolio() {
   const [viewKnowledges, setViewKnowledges] = useState("")
   const [openImage, setOpenImage] = useState("")
   const [rollTopPage, setRollTopPage] = useState(false)
-
+  const [aside, setAside] = useState(false)
   document.addEventListener('scroll', event => {
     if (window.scrollY > 400) {
       setRollTopPage(true)
@@ -17,6 +17,10 @@ function Portfolio() {
       setRollTopPage(false)
     }
   })
+  function closeAside(idScrollPage: string) {
+    scrollWindow(idScrollPage)
+    setAside(false)
+  }
   function closeImageOnScreen(event: React.MouseEvent<HTMLDivElement, MouseEvent>) {
     const body = document.getElementById('body')!
     const imageScreen = document.getElementById('imgScreen')!
@@ -48,7 +52,7 @@ function Portfolio() {
     <div className="flex relative flex-col w-screen">
       {openImage !== "" ?
         <div id="divImgScreen" onClick={event => closeImageOnScreen(event)} className="absolute flex items-center justify-center z-30 left-0 top-60 h-screen w-screen">
-          <img id="imgScreen" src={openImage} alt="imagem-projeto" className="rounded-lg border-cor-terciaria px-8 md:px-20 xl:px-0 border-2 dark:border-none dark:rounded-lg" />
+          <img id="imgScreen" src={openImage} alt="imagem-projeto" className="rounded-lg xl:border-cor-terciaria px-8 md:px-20 xl:px-0 xl:border-2 dark:border-none dark:rounded-lg" />
         </div> : <></>
       }
       {rollTopPage ?
@@ -56,9 +60,23 @@ function Portfolio() {
         : <></>}
       {viewKnowledges === "" ?
         <div className="flex flex-col items-center h-full w-full bg-cor-clara dark:bg-cor-darkPrimaria">
-          <Header />
+          <Header setAside={setAside} />
           <Main setViewKnowledges={setViewKnowledges} openImage={openImage} setOpenImage={setOpenImage} />
-
+          {aside ? <>
+            <div id="" className="fixed flex md:hidden items-center flex-col left-0 h-screen w-60 gap-6 bg-cor-terciaria z-30 py-6">
+              <h1 className="text-white font-bold text-2xl">Acesso Rápido</h1>
+              <div className="flex flex-col gap-3 w-40">
+                <a onClick={event => closeAside("#about_me")} className="h-6 text-lg font-medium cursor-pointer text-gray-200">Sobre Mim</a>
+                <a onClick={event => closeAside("#knowledge")} className="h-6 text-lg font-medium cursor-pointer text-gray-200">Conhecimentos</a>
+                <a onClick={event => closeAside("#projects")} className="h-6 text-lg font-medium cursor-pointer text-gray-200">Projetos</a>
+                <a onClick={event => closeAside("#contacts")} className="h-6 text-lg font-medium cursor-pointer text-gray-200">Contato</a>
+              </div>
+            </div>
+            <div className="absolute w-screen h-screen z-20" onClick={event => setAside(false)}>
+            </div>
+          </>
+            : ""
+          }
         </div>
         :
         <Certification viewKnowledges={viewKnowledges} setViewKnowledges={setViewKnowledges} openImage={openImage} setOpenImage={setOpenImage} />
