@@ -46,7 +46,7 @@ const Apresentation = () => {
             <div className="flex flex-col md:flex-row self-center items-center gap-5">
                 <img src="../images/eu.jpg" alt="Minha Imagem" className="w-full max-w-[15rem] rounded-full border-2 border-cor-terciaria dark:border-cor-darkTerciaria" />
                 <div className="flex flex-col items-center md:items-start min-w-fit">
-                    <h1 className="font-bold text-2xl dark:text-cor-darkTerciaria">Olá, eu sou Guilherme Mota</h1>
+                    <h1 className="font-bold text-2xl dark:text-cor-darkTerciaria">Olá, sou Guilherme Mota</h1>
                     <h2 className="text-lg font-medium dark:text-cor-darkTerciaria">Desenvolvedor Front-End</h2>
                     <a
                         onClick={event => scrollWindow("#projects")}

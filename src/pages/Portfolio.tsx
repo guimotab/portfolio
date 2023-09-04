@@ -35,7 +35,6 @@ function Portfolio() {
     if (openImage !== "") {
       setRollTopPage(false)
       const divImgScreen = document.getElementById("divImgScreen")!
-      divImgScreen.className = `absolute flex items-center justify-center z-20 left-0 top-[${rem}rem] h-screen w-screen`
       divImgScreen.style.top = `${rem}rem`
       if (openImage[1] !== ".") {
         imgScreen.style.width = "60rem"
@@ -51,9 +50,14 @@ function Portfolio() {
 
     <div className="flex relative flex-col w-screen">
       {openImage !== "" ?
-        <div id="divImgScreen" onClick={event => closeImageOnScreen(event)} className="absolute flex items-center justify-center z-30 left-0 top-60 h-screen w-screen">
-          <img id="imgScreen" src={openImage} alt="imagem-projeto" className="rounded-lg xl:border-cor-terciaria px-8 md:px-20 xl:px-0 xl:border-2 dark:border-none dark:rounded-lg" />
-        </div> : <></>
+        <>
+          <div className="fixed backdrop-blur-sm h-screen w-screen z-20"></div>
+          <div className="fixed bg-black opacity-50 h-screen w-screen z-20"></div>
+          <div id="divImgScreen" onClick={event => closeImageOnScreen(event)} className="absolute flex items-center justify-center z-30 left-0 top-60 h-screen w-screen">
+            <img id="imgScreen" src={openImage} alt="imagem-projeto" className="rounded-lg xl:border-cor-terciaria px-8 md:px-20 xl:px-0 xl:border-2 dark:border-none dark:rounded-lg" />
+          </div>
+        </>
+        : <></>
       }
       {rollTopPage ?
         <BsFillArrowUpCircleFill onClick={event => scrollWindow("#header")} size={45} className="fixed bottom-20 right-10 text-cor-terciaria z-20 hover:cursor-pointer dark:text-gray-200"></BsFillArrowUpCircleFill>
