@@ -1,7 +1,6 @@
 import { BiLogoJavascript } from "react-icons/bi"
 import { BiLogoTypescript } from "react-icons/bi"
 import { BiLogoCss3 } from "react-icons/bi"
-import { BiLogoHtml5 } from "react-icons/bi"
 import { BiLogoReact } from "react-icons/bi"
 import { BiLogoTailwindCss } from "react-icons/bi"
 import { BiLogoJava } from "react-icons/bi"
@@ -24,14 +23,20 @@ const Knowledge = ({setViewKnowledges}:KnowledgeProps) => {
             name: "Tailwind",
             logo: <BiLogoTailwindCss size={70} className="text-white mt-1" />
         }, {
-            name: "Java",
-            logo: <BiLogoJava size={70} className="text-white mt-1" />
+            name: "Css",
+            logo: <BiLogoCss3 size={70} className="text-white mt-1" />
+        }, {
+            name: "React",
+            logo: <BiLogoReact size={70} className="text-white mt-1" />
         }, {
             name: "MongoDB",
             logo: <BiLogoMongodb size={70} className="text-white mt-1" />
         }, {
-            name: "Css",
-            logo: <BiLogoCss3 size={70} className="text-white mt-1" />
+            name: "Java",
+            logo: <BiLogoJava size={70} className="text-white mt-1" />
+        },{
+            name: "Git",
+            logo: <BiLogoGit size={70} className="text-white mt-1" />
         },
 
     ]

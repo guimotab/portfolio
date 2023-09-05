@@ -32,7 +32,7 @@ const Certification = ({ viewKnowledges, setViewKnowledges, openImage, setOpenIm
     function openImageOnScreen() {
         const body = document.getElementById('body')!
         setOpenImage(url)
-        body.className = "overflow-x-hidden overflow-y-hidden"
+        body.classList.add("overflow-y-hidden")
     }
 
     function setNumberPositionArrayFiles(operation: number) {
@@ -67,8 +67,8 @@ const Certification = ({ viewKnowledges, setViewKnowledges, openImage, setOpenIm
                     <div className="flex items-start gap-3">
                         <img src={`${url}`} alt="imagem-certificado" className="w-full max-w-[15rem] sm:w-80 md:max-w-[30rem] md:w-[30rem] h-full max-h-[22rem]" />
                         <div className="flex flex-col justify-center h-full gap-6">
-                            <FaRegEye onClick={event => openImageOnScreen()} className="w-8 h-8 sm:w-12 sm:h-12 p-2 border-2 border-white text-white rounded-full hover:cursor-pointer" />
-                            <FaDownload onClick={event => downloadImage()} className="w-8 h-8 sm:w-12 sm:h-12 p-2 border-2 border-white text-white rounded-full hover:cursor-pointer" />
+                            <FaRegEye onClick={event => openImageOnScreen()} className="w-10 h-10 sm:w-12 sm:h-12 p-2 border-2 border-white text-white rounded-full hover:cursor-pointer" />
+                            <FaDownload onClick={event => downloadImage()} className="w-10 h-10 sm:w-12 sm:h-12 p-2 border-2 border-white text-white rounded-full hover:cursor-pointer" />
                         </div>
                     </div>
                     {images.nameFile.length > 1 ?

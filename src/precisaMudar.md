@@ -1,5 +1,5 @@
-precisa adicionar mais imagens dos projetos
+ajeitar responsivo do guibank
 
-precisa ajeitar posição imagem dos projetos ao clicar para ver
+precisa adicionar mais imagens dos projetos
 
 precisa colocar todos os certificados

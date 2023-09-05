@@ -4,6 +4,7 @@ import Main from "../components/Main";
 import Certification from "../components/Certification";
 import { BsFillArrowUpCircleFill } from 'react-icons/bs'
 import scrollWindow from "../shared/utils/scrollWindow";
+import SlideSwiper from "../components/Swiper";
 
 function Portfolio() {
   const [viewKnowledges, setViewKnowledges] = useState("")
@@ -50,12 +51,14 @@ function Portfolio() {
 
     <div className="flex relative flex-col w-screen">
       {openImage !== "" ?
+        // <>
+        //   <div className="fixed backdrop-blur-sm h-screen w-screen z-20"></div>
+        //   <div className="fixed bg-black opacity-50 h-screen w-screen z-20"></div>
+        //   <div id="divImgScreen" onClick={event => closeImageOnScreen(event)} className="absolute flex items-center justify-center z-30 left-0 top-60 h-screen w-screen">
+        //     <img id="imgScreen" src={openImage} alt="imagem-projeto" className="rounded-lg xl:border-cor-terciaria px-8 md:px-20 xl:px-0 xl:border-2 dark:border-none dark:rounded-lg" />
+        //   </div>
+        // </>
         <>
-          <div className="fixed backdrop-blur-sm h-screen w-screen z-20"></div>
-          <div className="fixed bg-black opacity-50 h-screen w-screen z-20"></div>
-          <div id="divImgScreen" onClick={event => closeImageOnScreen(event)} className="absolute flex items-center justify-center z-30 left-0 top-60 h-screen w-screen">
-            <img id="imgScreen" src={openImage} alt="imagem-projeto" className="rounded-lg xl:border-cor-terciaria px-8 md:px-20 xl:px-0 xl:border-2 dark:border-none dark:rounded-lg" />
-          </div>
         </>
         : <></>
       }
@@ -65,6 +68,7 @@ function Portfolio() {
       {viewKnowledges === "" ?
         <div className="flex flex-col items-center h-full w-full bg-cor-clara dark:bg-cor-darkPrimaria">
           <Header setAside={setAside} />
+          <SlideSwiper photos={[{src: "../images/Guibank.jpg"},{src: "../images/Guibank.jpg"}, {src: "../images/Guibank.jpg"}]}/>
           <Main setViewKnowledges={setViewKnowledges} openImage={openImage} setOpenImage={setOpenImage} />
           {aside ? <>
             <div id="" className="fixed flex md:hidden items-center flex-col left-0 h-screen w-60 gap-6 bg-cor-terciaria z-30 py-6">
