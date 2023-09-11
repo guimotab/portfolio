@@ -3,27 +3,37 @@ import { ISwiperObject } from '../../shared/interfaces/ISwiperObject';
 import 'swiper/css'
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import { SwiperButtonNext, SwiperButtonPrev } from './SwiperButtons';
 // 9.4.1
 interface SlideSwiperProps {
     photos: ISwiperObject[]
+    closeImageOnScreen: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void
 }
 
-const SlideSwiper = ({ photos }: SlideSwiperProps) => {
+const SlideSwiper = ({ photos, closeImageOnScreen }: SlideSwiperProps) => {
     return (
-        <div className='flex w-full max-w-7xl'>
-            <Swiper spaceBetween={0}
-                slidesPerView={1}
-                navigation
-                pagination={{ clickable: true }}
-                id="divImgScreen"
-                className='flex items-center justify-center'>
-                {photos.map((photo, index) =>
-                    <SwiperSlide key={index}>
-                        <img id="imgScreen" src={photo.src} alt="" className='self-center px-20' />
-                    </SwiperSlide>
-                )}
-            </Swiper>
-        </div>
+        <>
+            <div className="fixed backdrop-blur-sm h-screen w-screen z-20"></div>
+            <div id='divCloseImage' className="fixed bg-black opacity-50 h-screen w-screen z-20"></div>
+            <div id="divCloseImage" onClick={event => closeImageOnScreen(event)} className='absolute flex items-center justify-center z-30 left-0 top-60 h-screen w-screen'>
+                {/* <div className='rounded-lg xl:border-cor-terciaria px-8 md:px-20 xl:px-0 xl:border-2 dark:border-none dark:rounded-lg'> */}
+                <Swiper
+                    id="imgScreen"
+                    spaceBetween={40}
+                    slidesPerView={1}
+                    pagination={{ clickable: false }}
+                    className='w-[80rem]'>
+                    <SwiperButtonPrev text="Previous" />
+                    {photos.map((photo, index) =>
+                        <SwiperSlide key={index}>
+                            <img src={photo.src} alt="" className='rounded-lg xl:border-cor-terciaria px-8 md:px-20 xl:px-0 xl:border-2 dark:border-none dark:rounded-lg' />
+                        </SwiperSlide>
+                    )}
+                    <SwiperButtonNext text="Next" />
+                </Swiper>
+                {/* </div> */}
+            </div>
+        </>
     );
 };
 

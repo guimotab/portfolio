@@ -5,12 +5,18 @@ import Certification from "../components/Certification";
 import { BsFillArrowUpCircleFill } from 'react-icons/bs'
 import scrollWindow from "../shared/utils/scrollWindow";
 import SlideSwiper from "../components/Swiper";
+import { Swiper, SwiperSlide, useSwiper } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import { SwiperButtonNext, SwiperButtonPrev } from "../components/Swiper/SwiperButtons";
 
 function Portfolio() {
   const [viewKnowledges, setViewKnowledges] = useState("")
   const [openImage, setOpenImage] = useState("")
   const [rollTopPage, setRollTopPage] = useState(false)
   const [aside, setAside] = useState(false)
+  const swiper = useSwiper();
   document.addEventListener('scroll', event => {
     if (window.scrollY > 400) {
       setRollTopPage(true)
@@ -24,8 +30,8 @@ function Portfolio() {
   }
   function closeImageOnScreen(event: React.MouseEvent<HTMLDivElement, MouseEvent>) {
     const body = document.getElementById('body')!
-    const imageScreen = document.getElementById('imgScreen')!
-    if (event.target !== imageScreen) {
+    const divCloseImage = document.getElementById('divCloseImage')!
+    if (event.target === divCloseImage) {
       setOpenImage("")
       body.classList.remove("overflow-y-hidden")
     }
@@ -47,10 +53,12 @@ function Portfolio() {
       setRollTopPage(true)
     }
   }, [openImage])
+  const photos = [{ src: "../images/Guibank.jpg" }, { src: "../images/PongGame.jpg" }, { src: "../images/OrganoTable.jpg" }]
   return (
 
     <div className="flex relative flex-col w-screen">
       {openImage !== "" ?
+        <SlideSwiper closeImageOnScreen={closeImageOnScreen} photos={[{src: "../images/Guibank.jpg"},{src: "../images/PongGame.jpg"}, {src: "../images/OrganoTable.jpg"}]}/>
         // <>
         //   <div className="fixed backdrop-blur-sm h-screen w-screen z-20"></div>
         //   <div className="fixed bg-black opacity-50 h-screen w-screen z-20"></div>
@@ -58,8 +66,6 @@ function Portfolio() {
         //     <img id="imgScreen" src={openImage} alt="imagem-projeto" className="rounded-lg xl:border-cor-terciaria px-8 md:px-20 xl:px-0 xl:border-2 dark:border-none dark:rounded-lg" />
         //   </div>
         // </>
-        <>
-        </>
         : <></>
       }
       {rollTopPage ?
@@ -68,7 +74,6 @@ function Portfolio() {
       {viewKnowledges === "" ?
         <div className="flex flex-col items-center h-full w-full bg-cor-clara dark:bg-cor-darkPrimaria">
           <Header setAside={setAside} />
-          <SlideSwiper photos={[{src: "../images/Guibank.jpg"},{src: "../images/Guibank.jpg"}, {src: "../images/Guibank.jpg"}]}/>
           <Main setViewKnowledges={setViewKnowledges} openImage={openImage} setOpenImage={setOpenImage} />
           {aside ? <>
             <div id="" className="fixed flex md:hidden items-center flex-col left-0 h-screen w-60 gap-6 bg-cor-terciaria z-30 py-6">
