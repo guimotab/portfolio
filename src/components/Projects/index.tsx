@@ -3,8 +3,8 @@ import CardsProjects from '../CardsProjects'
 import { MdSmartphone } from "react-icons/md";
 import { MdComputer } from "react-icons/md";
 interface ProjectsProps{
-    openImage: string
-    setOpenImage: React.Dispatch<React.SetStateAction<string>>
+    openImage: string[]
+    setOpenImage: React.Dispatch<React.SetStateAction<string[]>>
 }
 
 /* 
@@ -18,7 +18,7 @@ Olhar pasta do precisa mudar ainda
 const Projects = ({openImage, setOpenImage}: ProjectsProps) => {
     const logos = [
         {
-            imageProject: "../images/Guibank.jpg",
+            imageProject: "../images/Guibank.jpg" as "../images/Guibank.jpg",
             title: "GuiBank",
             subtitle: 'Aplicativo de banco virtual que te permite fazer todas as operações básicas como: sacar, depositar e transferir entre suas contas criadas, além de poder investir seu dinheiro na "caixinha" e fazê-lo render todos os dias.',
             altProject: "Projeto GuiBank",
@@ -27,7 +27,7 @@ const Projects = ({openImage, setOpenImage}: ProjectsProps) => {
             logosTechnologies: findLogo(["Typescript", "Css", "Html", "Tailwind", "MongoDB"])!,
             support: [<MdSmartphone size={30} className='text-gray-400 dark:text-gray-200' />, <MdComputer size={30} className='text-gray-400 dark:text-gray-200' />]
         }, {
-            imageProject: "../images/OrganoTable.jpg",
+            imageProject: "../images/OrganoTable.jpg" as "../images/OrganoTable.jpg",
             title: "OrganoTable",
             subtitle: "Aplicativo de controle financeiro que vai te ajudar a medir e monitorar seus gastos de maneira simples, completa e dinâmica.",
             altProject: "Projeto OrganoTable",
@@ -36,7 +36,7 @@ const Projects = ({openImage, setOpenImage}: ProjectsProps) => {
             logosTechnologies: findLogo(["Typescript", "React", "Tailwind"])!,
             support: [<MdComputer size={30} className='text-gray-400 dark:text-gray-200' />]
         }, {
-            imageProject: "../images/PongGame.jpg",
+            imageProject: "../images/PongGame.jpg" as "../images/PongGame.jpg",
             title: "Pong Game",
             subtitle: "Recriação do jogo clássico Pong com mecânicas diferentes com disponibilidade para 2 players.",
             altProject: "Projeto PongGame",

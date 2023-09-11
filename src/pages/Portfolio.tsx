@@ -5,18 +5,12 @@ import Certification from "../components/Certification";
 import { BsFillArrowUpCircleFill } from 'react-icons/bs'
 import scrollWindow from "../shared/utils/scrollWindow";
 import SlideSwiper from "../components/Swiper";
-import { Swiper, SwiperSlide, useSwiper } from 'swiper/react';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import { SwiperButtonNext, SwiperButtonPrev } from "../components/Swiper/SwiperButtons";
 
 function Portfolio() {
   const [viewKnowledges, setViewKnowledges] = useState("")
-  const [openImage, setOpenImage] = useState("")
+  const [openImage, setOpenImage] = useState([""])
   const [rollTopPage, setRollTopPage] = useState(false)
   const [aside, setAside] = useState(false)
-  const swiper = useSwiper();
   document.addEventListener('scroll', event => {
     if (window.scrollY > 400) {
       setRollTopPage(true)
@@ -28,21 +22,19 @@ function Portfolio() {
     scrollWindow(idScrollPage)
     setAside(false)
   }
-  function closeImageOnScreen(event: React.MouseEvent<HTMLDivElement, MouseEvent>) {
+  function closeImageOnScreen(event: React.MouseEvent<HTMLDivElement, MouseEvent>, active: boolean = false) {
     const body = document.getElementById('body')!
-    const divCloseImage = document.getElementById('divCloseImage')!
-    if (event.target === divCloseImage) {
-      setOpenImage("")
+    const divOutImgProjects = document.getElementById('divOutImg')!
+    if (event.target === divOutImgProjects || active) {
+      setOpenImage([""])
       body.classList.remove("overflow-y-hidden")
     }
   }
+ 
   useEffect(() => {
-    const rem = (window.scrollY / 17).toFixed(0)
     const imgScreen = document.getElementById('imgScreen')!
-    if (openImage !== "") {
+    if (openImage[0] !== "") {
       setRollTopPage(false)
-      const divImgScreen = document.getElementById("divImgScreen")!
-      divImgScreen.style.top = `${rem}rem`
       if (openImage[1] !== ".") {
         imgScreen.style.width = "60rem"
       } else {
@@ -53,19 +45,11 @@ function Portfolio() {
       setRollTopPage(true)
     }
   }, [openImage])
-  const photos = [{ src: "../images/Guibank.jpg" }, { src: "../images/PongGame.jpg" }, { src: "../images/OrganoTable.jpg" }]
   return (
 
     <div className="flex relative flex-col w-screen">
-      {openImage !== "" ?
-        <SlideSwiper closeImageOnScreen={closeImageOnScreen} photos={[{src: "../images/Guibank.jpg"},{src: "../images/PongGame.jpg"}, {src: "../images/OrganoTable.jpg"}]}/>
-        // <>
-        //   <div className="fixed backdrop-blur-sm h-screen w-screen z-20"></div>
-        //   <div className="fixed bg-black opacity-50 h-screen w-screen z-20"></div>
-        //   <div id="divImgScreen" onClick={event => closeImageOnScreen(event)} className="absolute flex items-center justify-center z-30 left-0 top-60 h-screen w-screen">
-        //     <img id="imgScreen" src={openImage} alt="imagem-projeto" className="rounded-lg xl:border-cor-terciaria px-8 md:px-20 xl:px-0 xl:border-2 dark:border-none dark:rounded-lg" />
-        //   </div>
-        // </>
+      {openImage[0] !== "" ?
+        <SlideSwiper closeImageOnScreen={closeImageOnScreen} photos={openImage}/>
         : <></>
       }
       {rollTopPage ?

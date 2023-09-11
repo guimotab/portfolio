@@ -4,12 +4,13 @@ import { FaRegEye } from "react-icons/fa";
 import { FaDownload } from "react-icons/fa";
 import { BsFillArrowLeftCircleFill } from "react-icons/bs";
 import { BsFillArrowRightCircleFill } from "react-icons/bs";
+import { FindImages } from "../../shared/utils/FindImagesProjects";
 
 interface CertificationProps {
     viewKnowledges: string
     setViewKnowledges: React.Dispatch<React.SetStateAction<string>>
-    openImage: string
-    setOpenImage: React.Dispatch<React.SetStateAction<string>>
+    openImage: string[]
+    setOpenImage: React.Dispatch<React.SetStateAction<string[]>>
 }
 let numberPositionArrayFiles = 0
 const Certification = ({ viewKnowledges, setViewKnowledges, openImage, setOpenImage }: CertificationProps) => {
@@ -31,7 +32,8 @@ const Certification = ({ viewKnowledges, setViewKnowledges, openImage, setOpenIm
     }
     function openImageOnScreen() {
         const body = document.getElementById('body')!
-        setOpenImage(url)
+        setOpenImage(FindImages.findCertifications(viewKnowledges.toLowerCase(), images.nameFile) )
+        console.log("🚀 ~ file: index.tsx:36 ~ openImageOnScreen ~ FindImages.findCertifications(viewKnowledges.toLowerCase(), images.nameFile):", FindImages.findCertifications(viewKnowledges.toLowerCase(), images.nameFile))
         body.classList.add("overflow-y-hidden")
     }
 

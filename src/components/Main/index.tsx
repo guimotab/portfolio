@@ -6,8 +6,8 @@ import Projects from "../Projects"
 
 interface MainProps {
     setViewKnowledges: React.Dispatch<React.SetStateAction<string>>
-    openImage: string
-    setOpenImage: React.Dispatch<React.SetStateAction<string>>
+    openImage: string[]
+    setOpenImage: React.Dispatch<React.SetStateAction<string[]>>
 }
 
 const Main = ({ setViewKnowledges, openImage, setOpenImage }: MainProps) => {

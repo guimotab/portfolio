@@ -1,39 +1,42 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { ISwiperObject } from '../../shared/interfaces/ISwiperObject';
 import 'swiper/css'
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { SwiperButtonNext, SwiperButtonPrev } from './SwiperButtons';
 // 9.4.1
 interface SlideSwiperProps {
-    photos: ISwiperObject[]
-    closeImageOnScreen: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void
+    photos: string[]
+    closeImageOnScreen: (event: React.MouseEvent<HTMLDivElement, MouseEvent>, active?: boolean) => void
 }
 
 const SlideSwiper = ({ photos, closeImageOnScreen }: SlideSwiperProps) => {
     return (
-        <>
-            <div className="fixed backdrop-blur-sm h-screen w-screen z-20"></div>
-            <div id='divCloseImage' className="fixed bg-black opacity-50 h-screen w-screen z-20"></div>
-            <div id="divCloseImage" onClick={event => closeImageOnScreen(event)} className='absolute flex items-center justify-center z-30 left-0 top-60 h-screen w-screen'>
-                {/* <div className='rounded-lg xl:border-cor-terciaria px-8 md:px-20 xl:px-0 xl:border-2 dark:border-none dark:rounded-lg'> */}
+        <div onClick={event => closeImageOnScreen(event)} className='flex items-center justify-center z-20 fixed h-screen w-screen px-20'>
+            <div className="absolute bg-black opacity-50 h-screen w-screen"></div>
+            <div id="divOutImg" className="absolute backdrop-blur-sm h-screen w-screen"></div>
+            <div className='z-30'>
                 <Swiper
                     id="imgScreen"
                     spaceBetween={40}
                     slidesPerView={1}
-                    pagination={{ clickable: false }}
-                    className='w-[80rem]'>
-                    <SwiperButtonPrev text="Previous" />
+                    pagination={{ clickable: false }}>
+                    <div onClick={event=>closeImageOnScreen(event, true)} 
+                    className='absolute right-[20.5rem] sm:right-44 md:right-28 lg:hidden top-0 text-white font-medium text-lg z-10'>X</div>
                     {photos.map((photo, index) =>
-                        <SwiperSlide key={index}>
-                            <img src={photo.src} alt="" className='rounded-lg xl:border-cor-terciaria px-8 md:px-20 xl:px-0 xl:border-2 dark:border-none dark:rounded-lg' />
+                        <SwiperSlide key={index} >
+                            <img src={photo} alt="" className='mb-4 rounded-lg px-[22rem] sm:px-52 md:px-40 lg:px-32 xl:px-0 dark:rounded-lg' />
                         </SwiperSlide>
                     )}
-                    <SwiperButtonNext text="Next" />
+                    <div className='flex justify-center w-full'>
+                        <div className='flex justify-between max-w-xs md:max-w-2xl w-full'>
+                            <SwiperButtonPrev text="Previous" />
+                            <SwiperButtonNext text="Next" />
+                        </div>
+                    </div>
                 </Swiper>
                 {/* </div> */}
             </div>
-        </>
+        // </div>
     );
 };
 

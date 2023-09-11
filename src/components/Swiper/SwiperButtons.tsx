@@ -6,9 +6,9 @@ interface SwiperButtonProps {
 
 export const SwiperButtonNext = ({ text }: SwiperButtonProps) => {
     const swiper = useSwiper();
-    return <button onClick={() => swiper.slideNext()}>{text}</button>;
+    return <button onClick={() => swiper.slideNext()} className='px-5 py-1.5 bg-cor-terciaria dark:bg-cor-darkSecundaria rounded-lg text-white font-medium'>{text}</button>;
 };
 export const SwiperButtonPrev = ({ text }: SwiperButtonProps) => {
     const swiper = useSwiper();
-    return <button onClick={() => swiper.slidePrev()}>{text}</button>;
+    return <button onClick={() => swiper.slidePrev()} className='px-5 py-1.5 bg-cor-terciaria dark:bg-cor-darkSecundaria rounded-lg text-white font-medium'>{text}</button>;
 };

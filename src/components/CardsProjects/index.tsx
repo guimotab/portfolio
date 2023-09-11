@@ -1,5 +1,6 @@
 import { BiCodeAlt } from "react-icons/bi";
 import { FaRegEye } from "react-icons/fa";
+import { FindImages } from "../../shared/utils/FindImagesProjects";
 
 export interface CardsProjectsProps {
     imageProject: string;
@@ -10,13 +11,13 @@ export interface CardsProjectsProps {
     linkViewCode: string;
     logosTechnologies: JSX.Element[];
     support: JSX.Element[];
-    setOpenImage: React.Dispatch<React.SetStateAction<string>>
+    setOpenImage: React.Dispatch<React.SetStateAction<string[]>>
 }
 const CardsProjects = ({ imageProject, altProject, title, subtitle, linkViewProject, linkViewCode, logosTechnologies, support, setOpenImage }: CardsProjectsProps) => {
 
     function openImageOnScreen() {
         const body = document.getElementById('body')!
-        setOpenImage(`${imageProject}`)
+        setOpenImage(FindImages.findImagesProjects(imageProject))
         body.classList.add("overflow-y-hidden") 
     }
     return (
