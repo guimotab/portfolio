@@ -5,6 +5,7 @@ import Certification from "../components/Certification";
 import { BsFillArrowUpCircleFill } from 'react-icons/bs'
 import scrollWindow from "../shared/utils/scrollWindow";
 import SlideSwiper from "../components/Swiper";
+import Aside from "../components/Aside";
 
 function Portfolio() {
   const [viewKnowledges, setViewKnowledges] = useState("")
@@ -59,21 +60,7 @@ function Portfolio() {
         <div className="flex flex-col items-center h-full w-full bg-cor-clara dark:bg-cor-darkPrimaria">
           <Header setAside={setAside} />
           <Main setViewKnowledges={setViewKnowledges} openImage={openImage} setOpenImage={setOpenImage} />
-          {aside ? <>
-            <div id="" className="fixed flex md:hidden items-center flex-col left-0 h-screen w-60 gap-6 bg-cor-terciaria z-30 py-6">
-              <h1 className="text-white font-bold text-2xl">Acesso Rápido</h1>
-              <div className="flex flex-col gap-3 w-40">
-                <a onClick={event => closeAside("#about_me")} className="h-6 text-lg font-medium cursor-pointer text-gray-200">Sobre Mim</a>
-                <a onClick={event => closeAside("#knowledge")} className="h-6 text-lg font-medium cursor-pointer text-gray-200">Conhecimentos</a>
-                <a onClick={event => closeAside("#projects")} className="h-6 text-lg font-medium cursor-pointer text-gray-200">Projetos</a>
-                <a onClick={event => closeAside("#contacts")} className="h-6 text-lg font-medium cursor-pointer text-gray-200">Contato</a>
-              </div>
-            </div>
-            <div className="absolute w-screen h-screen z-20" onClick={event => setAside(false)}>
-            </div>
-          </>
-            : ""
-          }
+          <Aside aside={aside} closeAside={closeAside} setAside={setAside}/>
         </div>
         :
         <Certification viewKnowledges={viewKnowledges} setViewKnowledges={setViewKnowledges} openImage={openImage} setOpenImage={setOpenImage} />

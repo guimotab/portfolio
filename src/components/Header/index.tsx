@@ -48,7 +48,7 @@ const Header = ({setAside}:HeaderProps) => {
         <div className="flex gap-6 md:gap-3">
           <a href="https://github.com/guimotab" target="_blank"><BsGithub className="w-8 md:w-6 h-8 md:h-6 text-gray-500 hover:text-cor-secundaria dark:text-cor-darkTerciaria dark:hover:text-cor-darkHover" /></a>
           <a href="https://www.linkedin.com/in/guimotab/" target="_blank"><BsLinkedin className="w-8 md:w-6 h-8 md:h-6 text-gray-500 hover:text-cor-secundaria dark:text-cor-darkTerciaria dark:hover:text-cor-darkHover" /></a>
-          <a href="#" target="_blank"><BsWhatsapp className="w-8 md:w-6 h-8 md:h-6 text-gray-500 hover:text-cor-secundaria dark:text-cor-darkTerciaria dark:hover:text-cor-darkHover" /></a>
+          <a href="https://wa.me/5569992687447" target="_blank"><BsWhatsapp className="w-8 md:w-6 h-8 md:h-6 text-gray-500 hover:text-cor-secundaria dark:text-cor-darkTerciaria dark:hover:text-cor-darkHover" /></a>
         </div>
       </div>
     </header>

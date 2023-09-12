@@ -10,10 +10,10 @@ const Contacts = () => {
             <div className='flex gap-1'>
                 <div className='bg-cor-terciaria h-[10.5rem] w-1 mx-2 dark:bg-cor-darkHover'></div>
                 <div className='flex flex-col gap-3 py-2'>
-                    <div className='flex items-center gap-3'>
+                    <a href="https://wa.me/5569992687447" className="flex items-center gap-3" target='_blank' >
                         <MdWhatsapp className='w-7 h-7 dark:text-gray-200' />
                         <p className="font-medium text-lg dark:text-gray-200">(69) 99268-7447</p>
-                    </div>
+                    </a>
                     <div className='flex items-center gap-3'>
                         <MdOutlineMailOutline className='w-7 h-7 dark:text-gray-200' />
                         <p className="font-medium text-lg dark:text-gray-200">guimota22@gmail.com</p>
