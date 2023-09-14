@@ -21,9 +21,19 @@ const Certification = ({ viewKnowledges, setViewKnowledges, openImage, setOpenIm
     const [otherCertifications, setOtherCertifications] = useState(constructOthersImages())
 
     useEffect(() => {
+        const imagesCertificon = document.querySelectorAll(`#imgCertification`)
+        imagesCertificon.forEach((image) => {
+            const dataSetImg = parseFloat(image.attributes[0].value)
+            if (positionArrayFiles === dataSetImg) {
+                image.classList.add("border-4")
+            } else {
+                image.classList.remove("border-4")
+            }
+        })
+    }, [positionArrayFiles])
+    useEffect(() => {
         window.addEventListener("resize", () => setOtherCertifications(constructOthersImages()))
     }, [])
-
     function downloadImage() {
         const a = document.createElement('a')!
         a.href = url
@@ -32,8 +42,7 @@ const Certification = ({ viewKnowledges, setViewKnowledges, openImage, setOpenIm
     }
     function openImageOnScreen() {
         const body = document.getElementById('body')!
-        setOpenImage(FindImages.findCertifications(viewKnowledges.toLowerCase(), images.nameFile) )
-        console.log("🚀 ~ file: index.tsx:36 ~ openImageOnScreen ~ FindImages.findCertifications(viewKnowledges.toLowerCase(), images.nameFile):", FindImages.findCertifications(viewKnowledges.toLowerCase(), images.nameFile))
+        setOpenImage(FindImages.findCertifications(viewKnowledges.toLowerCase(), images.nameFile))
         body.classList.add("overflow-y-hidden")
     }
 
@@ -47,11 +56,9 @@ const Certification = ({ viewKnowledges, setViewKnowledges, openImage, setOpenIm
     function constructOthersImages() {
         if (window.innerWidth > 640) {
             const result = images.nameFile.map((item, index) =>
-                <>{index === positionArrayFiles ?
-                    <img key={index} src={`${basicrUrl}/${item}`} alt="certificado" className="w-full max-w-[10rem] cursor-pointer border-4 border-cor-hover" onClick={event => setPositionArrayFiles(index)} />
-                    :
-                    <img key={index} src={`${basicrUrl}/${item}`} alt="certificado" className="w-full max-w-[10rem] cursor-pointer" onClick={event => setPositionArrayFiles(index)} />
-                }</>
+                <div key={index}>
+                    <img data-index={index} id={`imgCertification`} src={`${basicrUrl}/${item}`} alt="certificado" className="w-full max-w-[10rem] cursor-pointer border-cor-secundaria" onClick={event => setPositionArrayFiles(index)} />
+                </div>
             )
             return result
         } else {
@@ -87,8 +94,7 @@ const Certification = ({ viewKnowledges, setViewKnowledges, openImage, setOpenIm
                         <h2 className="font-semibold text-lg sm:text-xl">O que eu aprendi?</h2>
                     </div>
                     <ul className="font-medium list-disc sm:text-lg">
-                        {images.description[positionArrayFiles].map((item, index) => <li key={index}>{item}</li>)
-                        }
+                        {images.description[positionArrayFiles].map((item, index) => <li key={index}>{item}</li>)}
                     </ul>
                 </div>
                 <button onClick={event => setViewKnowledges("")} className="w-fit bg-cor-terciaria px-4 py-1 text-white rounded-lg font-medium text-xl hover:bg-cor-hover">Voltar</button>

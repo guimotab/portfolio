@@ -28,10 +28,12 @@ const Knowledge = ({setViewKnowledges}:KnowledgeProps) => {
         }, {
             name: "React",
             logo: <BiLogoReact size={70} className="text-white mt-1" />
-        }, {
-            name: "MongoDB",
-            logo: <BiLogoMongodb size={70} className="text-white mt-1" />
-        }, {
+        }, 
+        // {
+        //     name: "MongoDB",
+        //     logo: <BiLogoMongodb size={70} className="text-white mt-1" />
+        // }, 
+        {
             name: "Java",
             logo: <BiLogoJava size={70} className="text-white mt-1" />
         },{

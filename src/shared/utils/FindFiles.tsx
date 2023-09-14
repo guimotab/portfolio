@@ -21,8 +21,20 @@ export default abstract class FindFiles {
             }
         } else if (dir === "javascript") {
             files = {
-                nameFile: ["Full Stack Javascript.jpg"],
-                description: [["Desenvolver uma página React do zero.", "Utilizar API CRUD.", "Integrar com o banco de dados."]]
+                nameFile: ["Full Stack Javascript.jpg", "Aplicações Web Com JavaScript.jpg"],
+                description: [
+                    ["Desenvolver uma página React do zero.", "Utilizar API CRUD.", "Integrar com o banco de dados."],
+                    ["Manipulação do DOM.", "Armazenamento de dados no navegador.", "Consumir dados de uma API.", "Validação de Formulários."]
+                ]
+            }
+        } else if (dir === "react") {
+            files = {
+                nameFile: ["Como Os Componentes Funcionam.jpg", "Desenvolvendo Com JavaScript.jpg", "Escrevendo com Typescript.jpg"],
+                description: [
+                    ["Como utilizar os componentes.", "Como utilizar props e states."],
+                    ["Funcionalidades básicas do React.", "Utilizando Props.", "Atualizando os componentes."],
+                    ["React com Typescript do zero com Create React App.", "Aprendendo a utilização de Hooks.", "Limpando o código com Typescript e boas práticas."]
+                ]
             }
         } else if (dir === "typescript") {
             files = {
