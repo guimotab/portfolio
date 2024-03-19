@@ -1,11 +1,13 @@
-
+import scrollWindow from "../../../../shared/utils/scrollWindow"
 interface AsideProps {
     aside: boolean
-    closeAside: (idScrollPage: string) => void
     setAside: React.Dispatch<React.SetStateAction<boolean>>
 }
-
-const Aside = ({ aside, closeAside, setAside }: AsideProps) => {
+const Aside = ({ aside, setAside }: AsideProps) => {
+    function closeAside(idScrollPage: string) {
+        scrollWindow(idScrollPage)
+        setAside(false)
+      }
     return (
         <>
             {aside ?

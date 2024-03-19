@@ -1,6 +1,7 @@
 import { BiCodeAlt } from "react-icons/bi";
 import { FaRegEye } from "react-icons/fa";
-import { FindImages } from "../../shared/utils/FindImagesProjects";
+import { FindImages } from "../../../../shared/utils/FindImagesProjects";
+import { useUpdateOpenImage } from "../../../../states/hooks/useUpdateOpenImage";
 
 export interface CardsProjectsProps {
     imageProject: string;
@@ -11,9 +12,9 @@ export interface CardsProjectsProps {
     linkViewCode: string;
     logosTechnologies: JSX.Element[];
     support: JSX.Element[];
-    setOpenImage: React.Dispatch<React.SetStateAction<string[]>>
 }
-const CardsProjects = ({ imageProject, altProject, title, subtitle, linkViewProject, linkViewCode, logosTechnologies, support, setOpenImage }: CardsProjectsProps) => {
+const CardsProjects = ({ imageProject, altProject, title, subtitle, linkViewProject, linkViewCode, logosTechnologies, support }: CardsProjectsProps) => {
+    const setOpenImage = useUpdateOpenImage()
 
     function openImageOnScreen() {
         const body = document.getElementById('body')!

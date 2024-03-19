@@ -1,7 +1,7 @@
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import Portfolio from './pages/Portfolio';
 import React from 'react';
+import AppRouter from './routes';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -9,7 +9,7 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <React.StrictMode>
-    <Portfolio /> 
+    <AppRouter /> 
   </React.StrictMode>
 );
 

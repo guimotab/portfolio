@@ -1,21 +1,8 @@
-import findLogo from '../../shared/utils/findLogo'
+import findLogo from '../../../../shared/utils/findLogo'
 import CardsProjects from '../CardsProjects'
 import { MdSmartphone } from "react-icons/md";
 import { MdComputer } from "react-icons/md";
-interface ProjectsProps{
-    openImage: string[]
-    setOpenImage: React.Dispatch<React.SetStateAction<string[]>>
-}
-
-/* 
-
-
-Olhar pasta do precisa mudar ainda
-
-
-*/
-
-const Projects = ({openImage, setOpenImage}: ProjectsProps) => {
+const Projects = () => {
     const logos = [
         {
             imageProject: "../images/Guibank.jpg" as "../images/Guibank.jpg",
@@ -62,7 +49,7 @@ const Projects = ({openImage, setOpenImage}: ProjectsProps) => {
                             linkViewCode={item.linkViewCode}
                             logosTechnologies={item.logosTechnologies}
                             support={item.support}
-                            setOpenImage={setOpenImage} />
+                             />
                     )}
                 </div>
             </div>
