@@ -1,3 +1,4 @@
+import { StructureCardProject } from '../../../../interface/StructureCardsProjects';
 import findLogo from '../../../../shared/utils/findLogo'
 import CardsProjects from '../CardsProjects'
 import { MdSmartphone } from "react-icons/md";
@@ -6,17 +7,25 @@ const Projects = () => {
     const logos = [
         {
             imageProject: "../images/Guibank.jpg" as "../images/Guibank.jpg",
+            title: "TrainFit",
+            subtitle: 'Aplicativo feito para dispositivos móveis para análise e registro de sua evolução na academia de forma dinâmica e personalizável.',
+            altProject: "Projeto GuiBank",
+            downloadApp: "teste",
+            logosTechnologies: findLogo(["React", "Css", "Html", "Expo"])!,
+            support: [<MdSmartphone size={30} className='text-gray-400 dark:text-gray-200' />]
+        }, {
+            imageProject: "../images/Guibank.jpg" as "../images/Guibank.jpg",
             title: "GuiBank",
-            subtitle: 'Aplicativo de banco virtual que te permite fazer todas as operações básicas como: sacar, depositar e transferir entre suas contas criadas, além de poder investir seu dinheiro na "caixinha" e fazê-lo render todos os dias.',
+            subtitle: 'Aplicativo de banco virtual que te permite fazer todas as operações básicas como: sacar, depositar e transferir entre suas contas criadas, além de poder investir seu dinheiro na "caixinha" e fazê-lo render por dia.',
             altProject: "Projeto GuiBank",
             linkViewProject: "https://guibank.vercel.app/",
             linkViewCode: "https://github.com/guimotab/GuiBank-Mongodb",
-            logosTechnologies: findLogo(["Typescript", "Css", "Html", "Tailwind", "MongoDB"])!,
+            logosTechnologies: findLogo(["Typescript", "Css", "Html", "Tailwind"])!,
             support: [<MdSmartphone size={30} className='text-gray-400 dark:text-gray-200' />, <MdComputer size={30} className='text-gray-400 dark:text-gray-200' />]
         }, {
             imageProject: "../images/OrganoTable.jpg" as "../images/OrganoTable.jpg",
             title: "OrganoTable",
-            subtitle: "Aplicativo de controle financeiro que vai te ajudar a medir e monitorar seus gastos de maneira simples, completa e dinâmica.",
+            subtitle: "Aplicativo de controle financeiro para te ajudar controlar e monitorar seus gastos de maneira simples, completa e dinâmica.",
             altProject: "Projeto OrganoTable",
             linkViewProject: "https://organo-table.vercel.app/",
             linkViewCode: "https://github.com/guimotab/OrganoTable",
@@ -32,7 +41,7 @@ const Projects = () => {
             logosTechnologies: findLogo(["Javascript", "Css", "Html"])!,
             support: [<MdComputer size={30} className='text-gray-400 dark:text-gray-200' />]
         },
-    ]
+    ] as StructureCardProject[]
     return (
         <section id='projects' className="flex flex-col items-center w-full z-0">
             <div className='flex flex-col items-center gap-6 max-w-7xl w-full'>
@@ -41,15 +50,8 @@ const Projects = () => {
                     {logos.map((item, index) =>
                         <CardsProjects
                             key={index}
-                            imageProject={item.imageProject}
-                            altProject={item.altProject}
-                            title={item.title}
-                            subtitle={item.subtitle}
-                            linkViewProject={item.linkViewProject}
-                            linkViewCode={item.linkViewCode}
-                            logosTechnologies={item.logosTechnologies}
-                            support={item.support}
-                             />
+                            {...item}
+                        />
                     )}
                 </div>
             </div>

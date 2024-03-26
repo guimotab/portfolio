@@ -1,0 +1,1 @@
+export type imagesProjects = "../images/Guibank.jpg" | "../images/OrganoTable.jpg" | "../images/PongGame.jpg"
