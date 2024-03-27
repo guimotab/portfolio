@@ -1,7 +1,9 @@
-import { BiCodeAlt } from "react-icons/bi";
 import { FaRegEye } from "react-icons/fa";
 import { FindImages } from "../../../../shared/utils/FindImagesProjects";
 import { useUpdateOpenImage } from "../../../../states/hooks/useUpdateOpenImage";
+import { FaGithub } from "react-icons/fa";
+import { StructureCardProject } from "../../../../interface/StructureCardsProjects";
+import { IoMdDownload } from "react-icons/io";
 
 
 function CardsProjects({ folder, imageName, qtdImagesInFolder, altProject, title, subtitle, linkViewProject, linkViewCode, downloadApp, logosTechnologies, support }: StructureCardProject) {
@@ -69,7 +71,7 @@ function CardsProjects({ folder, imageName, qtdImagesInFolder, altProject, title
 			</div>
 		</div>
 
-    )
+	);
 }
 
 export default CardsProjects
