@@ -1,8 +1,9 @@
-import { arrayFindLogos } from "../types/arrayFindLogo"
-import { imagesProjects } from "../types/imagesProject"
+import { folderProjects } from "../types/imagesProject"
 
 export interface StructureCardProject {
-  imageProject: imagesProjects,
+  folder: folderProjects,
+  imageName: string
+  qtdImagesInFolder: number,
   title: string,
   subtitle: string,
   altProject: string,

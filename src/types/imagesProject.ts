@@ -1,1 +1,1 @@
-export type imagesProjects = "../images/Guibank.jpg" | "../images/OrganoTable.jpg" | "../images/PongGame.jpg"
+export type folderProjects = "Guibank" | "OrganoTable" | "PongGame" | "Trainfit"
