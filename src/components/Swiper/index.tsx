@@ -35,7 +35,7 @@ const SlideSwiper = ({ photos }: SlideSwiperProps) => {
                                 className='absolute right-[20.5rem] sm:right-44 md:right-28 lg:hidden top-0 text-white font-medium text-lg z-10'>X</div>
                             {photos.map((photo, index) =>
                                 <SwiperSlide key={index} >
-                                    <img src={photo} alt="" className='mb-4 rounded-lg px-[22rem] sm:px-52 md:px-40 lg:px-32 xl:px-0 dark:rounded-lg' />
+                                    <img src={`${photo}`} alt="" className='mb-4 rounded-lg px-[22rem] sm:px-52 md:px-40 lg:px-32 xl:px-0 dark:rounded-lg' />
                                 </SwiperSlide>
                             )}
                             <div className='flex justify-center w-full'>
