@@ -1,3 +1,4 @@
+import { StructureCardProject } from '../../../../interface/StructureCardsProjects';
 import findLogo from '../../../../shared/utils/findLogo'
 import CardsProjects from '../CardsProjects'
 import { MdSmartphone } from "react-icons/md";
@@ -48,7 +49,7 @@ const Projects = () => {
             logosTechnologies: findLogo(["Javascript", "Css", "Html"])!,
             support: [<MdComputer size={30} className='text-gray-400 dark:text-gray-200' />]
         },
-    ]
+    ] as StructureCardProject[]
     return (
         <section id='projects' className="flex flex-col items-center w-full z-0">
             <div className='flex flex-col items-center gap-6 max-w-7xl w-full'>
@@ -57,14 +58,7 @@ const Projects = () => {
                     {logos.map((item, index) =>
                         <CardsProjects
                             key={index}
-                            imageProject={item.imageProject}
-                            altProject={item.altProject}
-                            title={item.title}
-                            subtitle={item.subtitle}
-                            linkViewProject={item.linkViewProject}
-                            linkViewCode={item.linkViewCode}
-                            logosTechnologies={item.logosTechnologies}
-                            support={item.support}
+                            {...item}
                              />
                     )}
                 </div>
