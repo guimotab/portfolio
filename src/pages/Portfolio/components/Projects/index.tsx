@@ -5,12 +5,13 @@ import { MdSmartphone } from "react-icons/md";
 import { MdComputer } from "react-icons/md";
 const Projects = () => {
     const logos = [
-        { 
+        {
             folder: "Trainfit",
             imageName: "Trainfit",
             qtdImagesInFolder: 2,
             title: "TrainFit",
             subtitle: 'Aplicativo para dispositivos móveis que te ajuda a analizar e registrar sua evolução/progressão na academia de forma dinâmica e personalizável.',
+            functionalities: ["Divisão de grupos de treinos personalizados.", "Estilização para cada grupo de treino.", "Predefinição dos treinos para cada divisão de grupos.", "Download/upload de seus dados."],
             altProject: "Projeto GuiBank",
             downloadApp: "../apk/trainfit.apk",
             logosTechnologies: findLogo(["React", "Css", "Html", "Expo"])!,
@@ -18,9 +19,10 @@ const Projects = () => {
         }, {
             folder: "Guibank",
             imageName: "Guibank",
-            qtdImagesInFolder: 5, 
+            qtdImagesInFolder: 5,
             title: "GuiBank",
-            subtitle: 'Aplicativo de banco virtual que te permite fazer todas as operações básicas como: sacar, depositar e transferir entre suas contas criadas, além de poder investir seu dinheiro na "caixinha" e fazê-lo render todos os dias.',
+            subtitle: 'Aplicativo de banco virtual que simula as funcionalidades de um banco virtual convencional.',
+            functionalities: ["Sacar, depositar e transferir entre contas.", "Aba de investimentos de rendimento diário.", "Extratos.","Edição de suas informações."],
             altProject: "Projeto GuiBank",
             linkViewProject: "https://guibank.vercel.app/",
             linkViewCode: "https://github.com/guimotab/GuiBank-Mongodb",
@@ -31,7 +33,8 @@ const Projects = () => {
             imageName: "OrganoTable",
             qtdImagesInFolder: 4,
             title: "OrganoTable",
-            subtitle: "Aplicativo de controle financeiro que vai te ajudar a medir e monitorar seus gastos de maneira simples, completa e dinâmica.",
+            subtitle: "Aplicativo de controle financeiro para te ajudar a medir e monitorar seus gastos de maneira simples, completa e dinâmica.",
+            functionalities: ["Cálculos automáticos.", "Criação de novos gastos dinamicamente.", "Armazenamento local."],
             altProject: "Projeto OrganoTable",
             linkViewProject: "https://organo-table.vercel.app/",
             linkViewCode: "https://github.com/guimotab/OrganoTable",
@@ -43,6 +46,7 @@ const Projects = () => {
             qtdImagesInFolder: 4,
             title: "Pong Game",
             subtitle: "Recriação do jogo clássico Pong com mecânicas diferentes com disponibilidade para 2 players.",
+            functionalities: ["Jogo multiplayer.", "Adição de poderes ao jogo."],
             altProject: "Projeto PongGame",
             linkViewProject: "https://pong-game-blue.vercel.app/",
             linkViewCode: "https://github.com/guimotab/Pong-Game",
@@ -59,7 +63,7 @@ const Projects = () => {
                         <CardsProjects
                             key={index}
                             {...item}
-                             />
+                        />
                     )}
                 </div>
             </div>

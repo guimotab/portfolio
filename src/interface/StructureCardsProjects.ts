@@ -6,6 +6,7 @@ export interface StructureCardProject {
   qtdImagesInFolder: number,
   title: string,
   subtitle: string,
+  functionalities: string[]
   altProject: string,
   linkViewProject?: string,
   linkViewCode?: string,

@@ -6,7 +6,7 @@ import { StructureCardProject } from "../../../../interface/StructureCardsProjec
 import { IoMdDownload } from "react-icons/io";
 
 
-function CardsProjects({ folder, imageName, qtdImagesInFolder, altProject, title, subtitle, linkViewProject, linkViewCode, downloadApp, logosTechnologies, support }: StructureCardProject) {
+function CardsProjects({ folder, imageName, qtdImagesInFolder, altProject, title, subtitle, linkViewProject, functionalities, linkViewCode, downloadApp, logosTechnologies, support }: StructureCardProject) {
 	const setOpenImage = useUpdateOpenImage();
 
 	function openImageOnScreen() {
@@ -17,13 +17,13 @@ function CardsProjects({ folder, imageName, qtdImagesInFolder, altProject, title
 
 	function handleDownloadApp(url: string) {
 		const link = document.createElement('a');
-    link.href = url;
-    link.download = `${folder.toLocaleLowerCase()}.apk`;
-    document.body.appendChild(link);
-    link.click();
+		link.href = url;
+		link.download = `${folder.toLocaleLowerCase()}.apk`;
+		document.body.appendChild(link);
+		link.click();
 		document.body.removeChild(link);
 	}
- 
+
 	return (
 		<div className="flex flex-col gap-4 border border-cor-terciaria h-full rounded-lg bg-white dark:bg-cor-terciaria px-8 py-4 shadow-gray-600 dark:shadow-none shadow-lg lg:opacity-60 hover:opacity-100 hover:animate-growProjects">
 			<div className="flex flex-col gap-2">
@@ -31,7 +31,17 @@ function CardsProjects({ folder, imageName, qtdImagesInFolder, altProject, title
 				<img src={`../images/${folder}/${imageName}.jpg`} alt={altProject} height={225} onClick={event => openImageOnScreen()} className="rounded-lg border-cor-terciaria dark:border-cor-darkHover border-2 dark:border-4 cursor-pointer hover:animate-shadowPopProject" />
 			</div>
 			<div className='flex flex-col gap-4 justify-between h-full'>
-				<p className="dark:text-gray-200">{subtitle}</p>
+				<div className="flex flex-col gap-3">
+					<p className="dark:text-gray-200">{subtitle}</p>
+					<div>
+						<p className="font-medium dark:text-gray-200">Funcionalidades:</p>
+						<ul className="flex flex-col gap-1 px-7">
+							{functionalities.map(functionality =>
+								<li className="list-disc dark:text-gray-200">{functionality}</li>
+							)}
+						</ul>
+					</div>
+				</div>
 				<div className='flex justify-between items-end'>
 					<div className="flex flex-col gap-4">
 						<div className='flex items-start gap-5'>
@@ -41,18 +51,18 @@ function CardsProjects({ folder, imageName, qtdImagesInFolder, altProject, title
 									<p className="text-white text-sm font-medium">Baixar APK</p>
 								</button> :
 								<>
-									<a href={linkViewProject} target="_blank" className='flex items-center gap-2 bg-cor-terciaria py-1 px-3 rounded-md hover:bg-cor-hover dark:bg-cor-darkSecundaria dark:hover:bg-cor-darkHover'>
+									<a href={linkViewProject} rel="noreferrer" target="_blank" className='flex items-center gap-2 bg-cor-terciaria py-1 px-3 rounded-md hover:bg-cor-hover dark:bg-cor-darkSecundaria dark:hover:bg-cor-darkHover'>
 										<FaRegEye size={18} className="text-white dark:text-gray-200" />
 										<p className="text-white text-sm font-medium">Visualizar</p>
 									</a>
-									<a href={linkViewCode} target="_blank" className='flex items-center gap-2 bg-cor-terciaria py-1 px-3 rounded-md hover:bg-cor-hover dark:bg-cor-darkSecundaria dark:hover:bg-cor-darkHover'>
+									<a href={linkViewCode} rel="noreferrer" target="_blank" className='flex items-center gap-2 bg-cor-terciaria py-1 px-3 rounded-md hover:bg-cor-hover dark:bg-cor-darkSecundaria dark:hover:bg-cor-darkHover'>
 										<FaGithub size={18} className="text-white dark:text-gray-200" />
-										<p className="text-white text-sm font-medium">Ver no GitHub</p>
+										<p className="text-white text-sm font-medium">Código</p>
 									</a>
 								</>}
 						</div>
 						<div className='flex flex-col'>
-							<h2 className=" font-medium">Tecnologias usadas:</h2>
+							<h2 className=" font-medium dark:text-gray-200">Tecnologias usadas:</h2>
 							<div className='flex items-center'>
 								{logosTechnologies.map((item, index) => <div key={index}>
 									{item}
