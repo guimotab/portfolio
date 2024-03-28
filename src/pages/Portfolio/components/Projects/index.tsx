@@ -29,7 +29,7 @@ const Projects = () => {
         }, {
             folder: "OrganoTable",
             imageName: "OrganoTable",
-            qtdImagesInFolder: 5,
+            qtdImagesInFolder: 4,
             title: "OrganoTable",
             subtitle: "Aplicativo de controle financeiro que vai te ajudar a medir e monitorar seus gastos de maneira simples, completa e dinâmica.",
             altProject: "Projeto OrganoTable",
@@ -40,7 +40,7 @@ const Projects = () => {
         }, {
             folder: "PongGame",
             imageName: "PongGame",
-            qtdImagesInFolder: 5,
+            qtdImagesInFolder: 4,
             title: "Pong Game",
             subtitle: "Recriação do jogo clássico Pong com mecânicas diferentes com disponibilidade para 2 players.",
             altProject: "Projeto PongGame",
