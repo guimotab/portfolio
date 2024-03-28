@@ -5,7 +5,7 @@ import { MdSmartphone } from "react-icons/md";
 import { MdComputer } from "react-icons/md";
 const Projects = () => {
     const logos = [
-        {
+        { 
             folder: "Trainfit",
             imageName: "Trainfit",
             qtdImagesInFolder: 2,
