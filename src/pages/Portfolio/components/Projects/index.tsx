@@ -24,7 +24,7 @@ const Projects = () => {
             altProject: "Projeto GuiBank",
             linkViewProject: "https://guibank.vercel.app/",
             linkViewCode: "https://github.com/guimotab/GuiBank-Mongodb",
-            logosTechnologies: findLogo(["Typescript", "Css", "Html", "Tailwind", "MongoDB"])!,
+            logosTechnologies: findLogo(["Typescript", "Css", "Html", "Tailwind"])!,
             support: [<MdSmartphone size={30} className='text-gray-400 dark:text-gray-200' />, <MdComputer size={30} className='text-gray-400 dark:text-gray-200' />]
         }, {
             folder: "OrganoTable",
