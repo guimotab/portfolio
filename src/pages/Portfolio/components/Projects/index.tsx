@@ -18,7 +18,7 @@ const Projects = () => {
         }, {
             folder: "Guibank",
             imageName: "Guibank",
-            qtdImagesInFolder: 5,
+            qtdImagesInFolder: 5, 
             title: "GuiBank",
             subtitle: 'Aplicativo de banco virtual que te permite fazer todas as operações básicas como: sacar, depositar e transferir entre suas contas criadas, além de poder investir seu dinheiro na "caixinha" e fazê-lo render por dia.',
             altProject: "Projeto GuiBank",
