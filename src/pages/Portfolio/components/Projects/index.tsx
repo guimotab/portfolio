@@ -32,7 +32,7 @@ const Projects = () => {
             functionalities: ["Divisão de grupos de treinos personalizados.", "Estilização para cada grupo de treino.", "Predefinição dos treinos para cada divisão de grupos.", "Download/upload de seus dados."],
             altProject: "Projeto Trainfit",
             downloadApp: "../apk/trainfit.apk",
-            logosTechnologies: findLogo(["React", "Css", "Html", "Expo"])!,
+            logosTechnologies: findLogo(["React", "Typescript" ,"Css", "Html", "Expo"])!,
             support: "Celular"
         }, {
             folder: "Guibank",
