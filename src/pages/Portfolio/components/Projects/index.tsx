@@ -1,33 +1,51 @@
 import { StructureCardProject } from '../../../../interface/StructureCardsProjects';
 import findLogo from '../../../../shared/utils/findLogo'
 import CardsProjects from '../CardsProjects'
-import { MdSmartphone } from "react-icons/md";
-import { MdComputer } from "react-icons/md";
 const Projects = () => {
     const logos = [
         {
+            folder: "IceCenter",
+            imageName: "Icecenter",
+            qtdImagesInFolder: 5,
+            title: "Ice Center",
+            subtitle: 'Aplicativo de gerenciamento de empresas e lojas de sorvetes que faz desde a criação da empresa até a visualização do site da loja criada. Obs.: Para utilizar o programa, necessita do backend rodando!',
+            functionalities: [
+                "Criação de empresas e redes de lojas.",
+                "Gerenciamento completo da empresa e das lojas.",
+                "Integração com ViaCep.",
+                "Ingração com GoogleMapsApi.",
+                "Login com Tokens e RefreshTokens.",
+                "Integração com Email (Em breve).",
+            ],
+            altProject: "Projeto IceCenter",
+            linkViewProject: "https://icecenter.vercel.app/",
+            linkViewCode: "https://github.com/guimotab/iceCenter",
+            logosTechnologies: findLogo(["Nextjs", "React",
+                "Typescript", "Tailwind", "Postgre"])!,
+            support: "Responsivo"
+        }, {
             folder: "Trainfit",
             imageName: "Trainfit",
             qtdImagesInFolder: 2,
             title: "TrainFit",
             subtitle: 'Aplicativo para dispositivos móveis que te ajuda a analizar e registrar sua evolução/progressão na academia de forma dinâmica e personalizável.',
             functionalities: ["Divisão de grupos de treinos personalizados.", "Estilização para cada grupo de treino.", "Predefinição dos treinos para cada divisão de grupos.", "Download/upload de seus dados."],
-            altProject: "Projeto GuiBank",
+            altProject: "Projeto Trainfit",
             downloadApp: "../apk/trainfit.apk",
             logosTechnologies: findLogo(["React", "Css", "Html", "Expo"])!,
-            support: [<MdSmartphone size={30} className='text-gray-400 dark:text-gray-200' />]
+            support: "Celular"
         }, {
             folder: "Guibank",
             imageName: "Guibank",
             qtdImagesInFolder: 5,
             title: "GuiBank",
             subtitle: 'Aplicativo de banco virtual que simula as funcionalidades de um banco virtual convencional.',
-            functionalities: ["Sacar, depositar e transferir entre contas.", "Aba de investimentos de rendimento diário.", "Extratos.","Edição de suas informações."],
+            functionalities: ["Sacar, depositar e transferir entre contas.", "Aba de investimentos de rendimento diário.", "Extratos.", "Edição de suas informações."],
             altProject: "Projeto GuiBank",
             linkViewProject: "https://guibank.vercel.app/",
             linkViewCode: "https://github.com/guimotab/GuiBank-Mongodb",
             logosTechnologies: findLogo(["Typescript", "Css", "Html", "Tailwind"])!,
-            support: [<MdSmartphone size={30} className='text-gray-400 dark:text-gray-200' />, <MdComputer size={30} className='text-gray-400 dark:text-gray-200' />]
+            support: "Responsivo"
         }, {
             folder: "OrganoTable",
             imageName: "OrganoTable",
@@ -39,7 +57,7 @@ const Projects = () => {
             linkViewProject: "https://organo-table.vercel.app/",
             linkViewCode: "https://github.com/guimotab/OrganoTable",
             logosTechnologies: findLogo(["Typescript", "React", "Tailwind"])!,
-            support: [<MdComputer size={30} className='text-gray-400 dark:text-gray-200' />]
+            support: "Computador"
         }, {
             folder: "PongGame",
             imageName: "PongGame",
@@ -51,7 +69,7 @@ const Projects = () => {
             linkViewProject: "https://pong-game-blue.vercel.app/",
             linkViewCode: "https://github.com/guimotab/Pong-Game",
             logosTechnologies: findLogo(["Javascript", "Css", "Html"])!,
-            support: [<MdComputer size={30} className='text-gray-400 dark:text-gray-200' />]
+            support: "Computador"
         },
     ] as StructureCardProject[]
     return (

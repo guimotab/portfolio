@@ -4,9 +4,14 @@ import { useUpdateOpenImage } from "../../../../states/hooks/useUpdateOpenImage"
 import { FaGithub } from "react-icons/fa";
 import { StructureCardProject } from "../../../../interface/StructureCardsProjects";
 import { IoMdDownload } from "react-icons/io";
+import { MdSmartphone } from "react-icons/md";
+import { MdComputer } from "react-icons/md";
 
+function CardsProjects({ folder, imageName, qtdImagesInFolder,
+	altProject, title, subtitle,
+	linkViewProject, functionalities, linkViewCode,
+	downloadApp, logosTechnologies, support }: StructureCardProject) {
 
-function CardsProjects({ folder, imageName, qtdImagesInFolder, altProject, title, subtitle, linkViewProject, functionalities, linkViewCode, downloadApp, logosTechnologies, support }: StructureCardProject) {
 	const setOpenImage = useUpdateOpenImage();
 
 	function openImageOnScreen() {
@@ -23,6 +28,7 @@ function CardsProjects({ folder, imageName, qtdImagesInFolder, altProject, title
 		link.click();
 		document.body.removeChild(link);
 	}
+
 
 	return (
 		<div className="flex flex-col gap-4 border border-cor-terciaria h-full rounded-lg bg-white dark:bg-cor-terciaria px-8 py-4 shadow-gray-600 dark:shadow-none shadow-lg lg:opacity-60 hover:opacity-100 hover:animate-growProjects">
@@ -74,7 +80,11 @@ function CardsProjects({ folder, imageName, qtdImagesInFolder, altProject, title
 					<div className="flex flex-col gap-2">
 						<p className="font-medium dark:text-gray-200">Suportado em:</p>
 						<div className="flex items-end justify-center gap-2">
-							{support.map((item, index) => <div key={index} className="h-fit">{item}</div>)}
+							<MdSmartphone size={30} className={`text-gray-400 dark:text-gray-200 ${support === "Celular" || support === "Responsivo" ? "" : "hidden"}`} />
+							<MdComputer size={30} className={`text-gray-400 dark:text-gray-200 ${support === "Computador" || support === "Responsivo" ? "" : "hidden"}`} />
+							{/* {support.map((item, index) => <div key={index} className="h-fit">
+								<MdComputer size={30} className='text-gray-400 dark:text-gray-200' />
+							</div>)} */}
 						</div>
 					</div>
 				</div>

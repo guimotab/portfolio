@@ -4,7 +4,7 @@ export interface StructureCardProject {
   folder: folderProjects,
   imageName: string
   qtdImagesInFolder: number,
-  title: string,
+  title: string, 
   subtitle: string,
   functionalities: string[]
   altProject: string,
@@ -12,5 +12,5 @@ export interface StructureCardProject {
   linkViewCode?: string,
   downloadApp?: string,
   logosTechnologies: JSX.Element[],
-  support: JSX.Element[]
+  support: "Celular" | "Computador" | "Responsivo"
 }

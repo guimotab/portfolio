@@ -1,1 +1,1 @@
-export type folderProjects = "Guibank" | "OrganoTable" | "PongGame" | "Trainfit"
+export type folderProjects = "Guibank" | "OrganoTable" | "PongGame" | "Trainfit" | "IceCenter"

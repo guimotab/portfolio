@@ -7,7 +7,8 @@ import { BiLogoTailwindCss } from "react-icons/bi"
 import { BiLogoMongodb } from "react-icons/bi"
 import { SiExpo } from "react-icons/si";
 import { arrayFindLogos } from "../../types/arrayFindLogo"
-
+import { TbBrandNextjs } from "react-icons/tb";
+import { BiLogoPostgresql } from "react-icons/bi";
 
 export default function findLogo(array: arrayFindLogos[]) {
     const possibleLogos = [
@@ -18,7 +19,9 @@ export default function findLogo(array: arrayFindLogos[]) {
         <BiLogoReact size={36} className="row-start-2 text-gray-400 dark:text-gray-200" />,
         <BiLogoTailwindCss size={36} className="row-start-2 text-gray-400 dark:text-gray-200" />,
         <BiLogoMongodb size={36} className="row-start-2 text-gray-400 dark:text-gray-200" />,
-        <SiExpo size={27} className="row-start-2 text-gray-400 dark:text-gray-200" />
+        <SiExpo size={27} className="row-start-2 text-gray-400 dark:text-gray-200" />,
+        <TbBrandNextjs size={34} className="row-start-2 text-gray-400 dark:text-gray-200" />,
+        <BiLogoPostgresql size={34} className="row-start-2 text-gray-400 dark:text-gray-200" />
     ]
     const nameLogos = [
         "Javascript",
@@ -28,7 +31,9 @@ export default function findLogo(array: arrayFindLogos[]) {
         "React",
         "Tailwind",
         "MongoDB",
-        "Expo"
+        "Expo",
+        "Nextjs",
+        "Postgre"
     ] as arrayFindLogos[]
 
     let logos: JSX.Element[] = []
