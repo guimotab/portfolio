@@ -47,7 +47,7 @@ const Certificates = () => {
       <h1 className="font-bold text-2xl dark:text-gray-200">Certificados</h1>
       <div className="flex flex-wrap justify-evenly gap-4 lg:px-20">
         {knowledgesLogo.map((item, index) =>
-          <Card
+          <div
             key={index}
             onClick={event => handleCertificates(`certificates/${item.name}`)}
             className="flex flex-col items-center bg-primary max-w-[14rem] w-full rounded-lg px-14 py-6 hover:shadow-[#0056b880] dark:hover:shadow-[#0077ff77] dark:shadow-lg hover:shadow-lg hover:animate-growKnowledges hover:cursor-pointer">
@@ -56,7 +56,7 @@ const Certificates = () => {
               <h2 className="text-white font-medium text-2xl">{item.name}</h2>
             </div>
             {item.logo}
-          </Card>
+          </div>
         )}
       </div>
     </section>
