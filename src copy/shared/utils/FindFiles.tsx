@@ -1,9 +1,4 @@
-import { JsxElement } from "typescript"
-
 export default abstract class FindFiles {
-    constructor() {
-
-    }
     static filesDir(dir: string) {
         let files: { nameFile: string[], description: string[][] } = { nameFile: [], description: [[""]] }
         if (dir === "css") {

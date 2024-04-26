@@ -38,7 +38,7 @@ const Portfolio = () => {
     <div className="flex relative flex-col w-screen">
       <SlideSwiper photos={openImage} />
       {rollTopPage ?
-        <Link to={"/#header"}
+        <Link to={"/#header"} 
           className="fixed bottom-20 right-10 text-primary z-20 hover:cursor-pointer dark:text-gray-200" >
           <BsFillArrowUpCircleFill
             onClick={event => scrollWindow("#header")}

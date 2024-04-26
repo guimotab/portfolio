@@ -1,0 +1,15 @@
+import slugProjects from "@/types/slugProjects"
+
+export default interface ICardProject {
+  slug: slugProjects
+  title: string,
+  resume: string
+  functionalities: string[]
+  altProject: string,
+  linkViewProject?: string,
+  linkViewCode: string,
+  downloadApp?: string,
+  needBackend?: boolean
+  logosTechnologies: JSX.Element[],
+  support: "Celular" | "Computador" | "Responsivo"
+}
