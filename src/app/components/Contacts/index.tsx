@@ -21,7 +21,7 @@ const Contacts = () => {
   ]
   return (
     <section id='contacts' className="flex flex-col w-full py-3 mb-10 gap-3">
-      <h1 className="font-bold text-2xl dark:text-gray-200">Contato</h1>
+      <h1 className="font-bold text-2xl dark:text-gray-200">Contatos</h1>
       <div className='flex gap-1'>
         <div className='bg-primary h-[10.5rem] w-1 mx-2 dark:bg-cor-darkHover'></div>
         <div className='flex flex-col gap-3 py-2'>

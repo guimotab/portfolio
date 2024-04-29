@@ -28,13 +28,13 @@ const AboutMe = () => {
         <div className="row-span-2 relative flex gap-3 h-min max-h-92 lg:h-full">
           <div className="grid grid-rows-3 z-10 gap-3">
             <div className="relative h-fit mt-1">
-              <div className="p-1.5 border-4 border-primary dark:border-cor-darkHover bg-white rounded-full dark:bg-primary"></div>
+              <div className="p-1.5 border-4 border-primary dark:border-secondary bg-white rounded-full dark:bg-background"></div>
             </div>
             <div className="relative h-fit mt-1">
-              <div className="p-1.5 border-4 border-primary dark:border-cor-darkHover bg-white rounded-full dark:bg-primary"></div>
+              <div className="p-1.5 border-4 border-primary dark:border-secondary bg-white rounded-full dark:bg-background"></div>
             </div>
             <div className="relative h-fit mt-1">
-              <div className="p-1.5 border-4 border-primary dark:border-cor-darkHover bg-white rounded-full dark:bg-primary"></div>
+              <div className="p-1.5 border-4 border-primary dark:border-secondary bg-white rounded-full dark:bg-background"></div>
             </div>
           </div>
           <div className="absolute h-full w-1.5 bg-primary dark:bg-cor-darkSecundaria ml-[6px] my-2"></div>

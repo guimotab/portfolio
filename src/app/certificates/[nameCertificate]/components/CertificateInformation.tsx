@@ -5,32 +5,34 @@ import { Label } from "@/components/ui/label"
 import nameCertificates from "@/types/nameCertificates"
 import Link from "next/link"
 import { useParams } from "next/navigation"
-import { IoHome } from "react-icons/io5";
 import { MdFileDownload } from "react-icons/md";
 interface CertificateInformationProps {
-  certificate: string
+  certificate: {
+    name: string;
+    description: string[];
+  }
 }
 const CertificateInformation = ({ certificate }: CertificateInformationProps) => {
   const { nameCertificate } = useParams() as { nameCertificate: nameCertificates }
 
   function downloadImage() {
-    const url = `../images/certification/${nameCertificate!.toLowerCase()}/${certificate}`
+    const url = `../images/certification/${nameCertificate!.toLowerCase()}/${certificate.name}`
     const a = document.createElement('a')!
     a.href = url
     a.download = url
     a.click()
   }
   return (
-    <section className="flex flex-col pt-8 max-w-4xl w-full gap-6">
+    <section className="flex flex-col pt-4 max-w-4xl gap-6">
       <div>
         <div className="flex flex-col">
-          <Label className="font-bold text-xl sm:text-2xl">Certificado: {certificate.split('.')[0]}</Label>
+          <Label className="font-bold text-xl sm:text-2xl">Certificado: {certificate.name.split('.')[0]}</Label>
           <Label className="font-semibold  sm:text-lg">O que eu aprendi?</Label>
         </div>
         <div className="font-medium list-disc">
-          {/* {certificates.description[filesArrayPosition].map((item, index) =>
+          {certificate.description.map((item, index) =>
             <li key={index}>{item}</li>
-          )} */}
+          )}
         </div>
       </div>
       <div className="flex items-center justify-between w-full max-w-[20rem]">

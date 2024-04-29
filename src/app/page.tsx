@@ -6,11 +6,18 @@ import Certificates from "./components/Certificates";
 import Contacts from "./components/Contacts";
 import Projects from "./components/Projects";
 import RollTopPage from "../components/RollTopPage";
+import { useEffect, useState } from "react";
+import Theme from "@/classes/Theme";
 
 export default function Home() {
+  const [canRender, setCanRender] = useState(false)
+  useEffect(() => {
+    Theme.preferenceTheme()
+    setCanRender(true)
+  }, []);
 
-  return (
-    <main className="flex min-h-screen flex-col items-center  ">
+  return canRender && (
+    <main className="flex min-h-screen flex-col items-center ">
       <Header />
       <div className="flex flex-col items-center gap-5 max-w-[86rem] z-10 px-8 sm:px-24">
         <RollTopPage />

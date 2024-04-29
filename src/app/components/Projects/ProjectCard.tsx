@@ -10,6 +10,7 @@ import { ImagesProjects } from "@/classes/ImagesProjects";
 import ICardProject from "@/interface/ICardProject";
 import { AlertDialogHeader, AlertDialogFooter, AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogTitle, AlertDialogTrigger } from "@/components/ui/alert-dialog";
 import Overlay from "@/components/Overlay";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 interface ProjectCardProps {
 	item: ICardProject
 	setMouseOverProject: Dispatch<SetStateAction<string>>
@@ -19,6 +20,7 @@ const ProjectCard = ({ item, setMouseOverProject }: ProjectCardProps) => {
 
 	const [openImage, setOpenImage] = useState(false)
 	const imageProject = ImagesProjects.getImages(item.slug, "first") as string
+	const allImagesProject = ImagesProjects.getImages(item.slug, "all") as string[]
 
 	function mouseEnterProject() {
 		setMouseOverProject(item.title)
@@ -28,9 +30,13 @@ const ProjectCard = ({ item, setMouseOverProject }: ProjectCardProps) => {
 	}
 
 	function handleOpenImage() {
+		const body = document.getElementsByTagName("body")[0]!
+		body.classList.add("overflow-hidden")
 		setOpenImage(true)
 	}
 	function handleCloseImage() {
+		const body = document.getElementsByTagName("body")[0]!
+		body.classList.remove("overflow-hidden")
 		setOpenImage(false)
 	}
 
@@ -38,7 +44,7 @@ const ProjectCard = ({ item, setMouseOverProject }: ProjectCardProps) => {
 		const link = document.createElement('a');
 		link.href = url;
 		const folder = ImagesProjects.getFolderProject(item.slug)
-		link.download = `${folder.toLocaleLowerCase()}.apk`;
+		link.download = `${folder.name.toLocaleLowerCase()}.apk`;
 		document.body.appendChild(link);
 		link.click();
 		document.body.removeChild(link);
@@ -48,23 +54,35 @@ const ProjectCard = ({ item, setMouseOverProject }: ProjectCardProps) => {
 		<>
 			{openImage &&
 				<Overlay closeOverlay={handleCloseImage}>
-					<img
-						src={imageProject}
-						alt={item.altProject}
-						className="rounded-lg w-[60rem] border-primary dark:border-cor-darkHover border-2 dark:border-4 cursor-pointer " />
+					<div className="z-60">
+						<Carousel >
+							<CarouselContent >
+								{allImagesProject.map(image =>
+									<CarouselItem>
+										<img
+											src={image}
+											alt={item.altProject}
+											className="rounded-lg  border-primary dark:border-cor-darkHover border-2 dark:border-4 cursor-pointer " />
+									</CarouselItem>
+								)}
+							</CarouselContent>
+							<CarouselPrevious className="z-60" />
+							<CarouselNext className="z-60" />
+						</Carousel>
+					</div>
 				</Overlay>
 			}
 			<Card id={item.title}
 				onMouseLeave={mouseLeaveProject}
 				onMouseEnter={mouseEnterProject}
-				className="transition duration-500 hover:scale-[1.02] z-0 flex flex-col gap-4 border h-full rounded-lg bg-white dark:bg-primary px-8 py-4 dark:shadow-none">
+				className="transition duration-500 hover:scale-[1.02] z-0 flex flex-col gap-4 border h-full rounded-lg px-8 py-4 ">
 				<div className="flex flex-col gap-2">
 					<h2 className="font-semibold text-xl dark:text-gray-200">{item.title}</h2>
 					<img
 						onClick={handleOpenImage}
 						src={imageProject}
 						alt={item.altProject} height={225}
-						className="rounded-lg border-primary dark:border-cor-darkHover border-2 dark:border-4 cursor-pointer " />
+						className="rounded-lg border-primary dark:border-cor-darkHover border-2 cursor-pointer" />
 				</div>
 
 				<div className='flex flex-col gap-4 justify-between h-full'>
@@ -99,7 +117,7 @@ const ProjectCard = ({ item, setMouseOverProject }: ProjectCardProps) => {
 											<AlertDialogTrigger asChild>
 												<Button className="space-x-2 py-1.5 h-fit" >
 													<FaRegEye size={18} className=" dark:text-gray-200" />
-													<p className=" text-sm font-medium">Visualizar</p>
+													<p className="text-white text-sm font-medium">Visualizar</p>
 												</Button>
 											</AlertDialogTrigger>
 											<AlertDialogContent>
@@ -112,8 +130,7 @@ const ProjectCard = ({ item, setMouseOverProject }: ProjectCardProps) => {
 												</AlertDialogHeader>
 												<AlertDialogFooter>
 													<AlertDialogCancel>Voltar</AlertDialogCancel>
-													<AlertDialogAction
-														className="bg-slate-800 hover:bg-slate-800/90">
+													<AlertDialogAction>
 														<Link href={item.linkViewProject!} target="_blank" rel="noreferrer">
 															Continuar
 														</Link>
@@ -126,7 +143,7 @@ const ProjectCard = ({ item, setMouseOverProject }: ProjectCardProps) => {
 										<Link href={item.linkViewProject!} target="_blank" rel="noreferrer">
 											<Button className="space-x-2 py-1.5 h-fit" >
 												<FaRegEye size={18} className=" dark:text-gray-200" />
-												<p className=" text-sm font-medium">Visualizar</p>
+												<p className="text-white text-sm font-medium">Visualizar</p>
 											</Button>
 										</Link>
 									}

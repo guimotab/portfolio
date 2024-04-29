@@ -11,7 +11,7 @@ export default abstract class Certificates {
   static getImages(nameCertificate: nameCertificates, currentCertificates: ICertificates) {
     const basicrUrl = `../images/certification/${nameCertificate.toLowerCase()}`
     const arrayImages = [] as string[]
-    currentCertificates.nameFiles.forEach(title => arrayImages.push((basicrUrl + `/${title}`).toLowerCase()))
+    currentCertificates.values.forEach(certificate => arrayImages.push((basicrUrl + `/${certificate.name}`).toLowerCase()))
     return arrayImages
 } 
 } 

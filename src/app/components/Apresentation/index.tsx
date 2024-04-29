@@ -51,7 +51,7 @@ const Apresentation = () => {
 
       <div className="flex flex-col md:flex-row self-center items-center gap-5">
 
-        <img src="./guimotab.jpg" alt="Minha Imagem" className=" object-cover w-64 h-64 rounded-full  border-2 border-primary dark:border-cor-darkTerciaria" />
+        <img src="./guimotab.jpg" alt="Minha Imagem" className="object-cover w-64 h-64 rounded-full border-2 border-primary dark:border-cor-darkTerciaria" />
 
         <div className="flex flex-col items-center md:items-start min-w-fit">
           <h1 className="font-bold text-2xl dark:text-cor-darkTerciaria">Olá, sou Guilherme Mota</h1>

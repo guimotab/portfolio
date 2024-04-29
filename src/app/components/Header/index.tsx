@@ -3,51 +3,14 @@
 import Link from "next/link"
 import { BsFillSunFill, BsMoonFill, BsGithub, BsLinkedin, BsWhatsapp } from "react-icons/bs"
 import scrollWindow from "../../../utils/scrollWindow"
+import { changeTheme } from "@/components/Theme"
+import { BiMenu } from "react-icons/bi"
+import { Sheet, SheetTrigger, SheetContent, SheetHeader, SheetTitle, SheetDescription, SheetClose } from "@/components/ui/sheet"
+import { Button } from "@/components/ui/button"
 
 interface HeaderProps {
-  // aside usado para responsividade
-  // setAside: React.Dispatch<React.SetStateAction<boolean>>
 }
 const Header = ({ }: HeaderProps) => {
-
-
-  function changeTheme(themeMode: string) {
-    const body = document.getElementsByTagName("body")[0]!
-    const divDarkMode = document.getElementById("divDarkMode")!
-    const divWhiteMode = document.getElementById("divWhiteMode")!
-
-    if (themeMode === "dark") {
-      changeClasses(body, "add", ["overflow-x-hidden", "dark"])
-      changeClasses(body, "remove", ["overflow-x-opacity-0"])
-
-      changeClasses(divDarkMode, "remove", ["opacity-100", "animate-slideinTheme", "z-20"])
-      changeClasses(divDarkMode, "add", ["opacity-0", "animate-slideOutTheme", "z-0"])
-
-      changeClasses(divWhiteMode, "remove", ["opacity-0", "animate-slideOutTheme", "z-0"])
-      changeClasses(divWhiteMode, "add", ["opacity-100", "animate-slideinTheme", "z-20"])
-    } else {
-      changeClasses(body, "add", ["overflow-x-opacity-0"])
-      changeClasses(body, "remove", ["overflow-x-hidden", "dark"])
-
-      changeClasses(divDarkMode, "remove", ["opacity-0", "animate-slideOutTheme", "z-0"])
-      changeClasses(divDarkMode, "add", ["opacity-100", "animate-slideinTheme", "z-20"])
-
-      changeClasses(divWhiteMode, "remove", ["opacity-100", "animate-slideinTheme", "z-20"])
-      changeClasses(divWhiteMode, "add", ["opacity-0", "animate-slideOutTheme", "z-0"])
-    }
-  }
-
-  function changeClasses(element: HTMLElement, type: "remove" | "add", classNames: string[]) {
-    if (classNames && type === "add") {
-      classNames.forEach(className =>
-        element.classList.add(className)
-      )
-    } else if (classNames && type === "remove") {
-      classNames.forEach(className =>
-        element.classList.remove(className)
-      )
-    }
-  }
 
   const linksScrollHeader = [
     {
@@ -79,18 +42,43 @@ const Header = ({ }: HeaderProps) => {
   ]
 
   return (
-    <header id="header" className="flex justify-center py-4 w-full dark:bg-[#000e20] sm:px-24 px-8">
+    <header id="header" className="flex justify-center py-4 w-full sm:px-24 px-8">
       <div className="flex items-center justify-between w-full max-w-7xl">
         <div className="flex items-center gap-5">
-          {/* <BiMenu className="md:hidden w-12 h-12 text-primary dark:text-cor-darkTerciaria" onClick={event => setAside(true)} /> */}
+
+          <Sheet>
+            <SheetTrigger>
+              <BiMenu className="md:hidden w-12 h-12 text-primary dark:text-cor-darkTerciaria" />
+            </SheetTrigger>
+            <SheetContent>
+              <SheetHeader>
+                <SheetTitle className="text-xl">Acesso Rápido</SheetTitle>
+                <SheetDescription>
+                  <div className="flex flex-col items-center gap-3">
+                    {linksScrollHeader.map(link =>
+                      <Button variant={"ghost"} className="w-fit">
+                        <Link href={`#${link.id}`} scroll={false} key={link.id}
+                          onClick={event => scrollWindow(link.id)}
+                          className="relative text-lg text-gray-300 font-medium cursor-pointer">
+                          {link.name}
+                        </Link>
+                      </Button>
+                    )}
+                  </div>
+                </SheetDescription>
+              </SheetHeader>
+            </SheetContent>
+          </Sheet>
+
+
           <div className="relative w-7 h-7">
 
-            <div id="divWhiteMode" className="opacity-0 absolute dark:block" onClick={event => changeTheme("white")}>
-              <BsFillSunFill id="themeWhite" className="text-primary z-0 w-8 h-8 md:w-7 md:h-7 dark:text-cor-darkTerciaria " />
+            <div id="divWhiteMode" className="opacity-0 absolute dark:opacity-100 cursor-pointer z-0 dark:z-20" onClick={event => changeTheme("white")}>
+              <BsFillSunFill id="themeWhite" className="text-primary  w-8 h-8 md:w-7 md:h-7 dark:text-white " />
             </div>
 
-            <div id="divDarkMode" className="cursor-pointer absolute dark:opacity-0" onClick={event => changeTheme("dark")}>
-              <BsMoonFill id="themeDark" className="text-primary z-20 w-7 h-7 md:w-6 md:h-6 dark:text-cor-darkTerciaria cursor-pointer" />
+            <div id="divDarkMode" className="cursor-pointer absolute dark:opacity-0 z-20 dark:z-0" onClick={event => changeTheme("dark")}>
+              <BsMoonFill id="themeDark" className="text-primary  w-7 h-7 md:w-6 md:h-6 dark:text-white" />
             </div>
 
           </div>
@@ -112,7 +100,7 @@ const Header = ({ }: HeaderProps) => {
         <div className="flex gap-6 md:gap-3">
           {linksRedirect.map(link =>
             <a key={link.href} href={link.href} target="_blank">
-              <link.icon className="w-8 md:w-6 h-8 md:h-6 text-gray-500 hover:text-secondary dark:text-cor-darkTerciaria dark:hover:text-cor-darkHover" />
+              <link.icon className="w-8 md:w-6 h-8 md:h-6 text-gray-500 dark:text-gray-100 hover:text-secondary dark:hover:text-secondary " />
             </a>
           )}
         </div>
@@ -121,5 +109,4 @@ const Header = ({ }: HeaderProps) => {
     </header>
   )
 }
-
 export default Header

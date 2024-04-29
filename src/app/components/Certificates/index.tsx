@@ -42,7 +42,7 @@ const Certificates = () => {
         {knowledgesLogo.map((item, index) =>
           <Link href={`certificates/${item.name}`}
             key={index}
-            className="flex flex-col items-center bg-primary max-w-[14rem] w-full rounded-lg px-14 py-6 hover:shadow-[#0056b880] dark:hover:shadow-[#0077ff77] dark:shadow-lg hover:shadow-lg hover:animate-growKnowledges hover:cursor-pointer">
+            className="flex flex-col items-center bg-primary dark:bg-[#112e4f] max-w-[14rem] w-full rounded-lg px-14 py-6 hover:shadow-[#0056b880] dark:hover:shadow-[#0077ff77] dark:shadow-lg hover:shadow-lg hover:animate-growKnowledges hover:cursor-pointer">
             <div className="flex flex-col items-center">
               <p className="text-white font-medium h-4">Certificado</p>
               <h2 className="text-white font-medium text-2xl">{item.name}</h2>

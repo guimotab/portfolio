@@ -1,15 +1,17 @@
 import { projectFolderImages } from "@/types/projectFolderImages"
 import slugProjects from "@/types/slugProjects"
-import path from "path"
-import fs from 'fs';
+interface IProjectsFolder {
+    name: projectFolderImages,
+    qtdImages: number
+}
 
 const foldersProjects = {
-    guiBank: "Guibank", 
-    iceCenter: "IceCenter",
-    organoTable: "OrganoTable",
-    pongGame: "PongGame",
-    trainFit: "Trainfit",
-} as Record<slugProjects, projectFolderImages>
+    guiBank: { name: "Guibank", qtdImages: 5 },
+    iceCenter: { name: "IceCenter", qtdImages: 5 },
+    organoTable: { name: "OrganoTable", qtdImages: 4 },
+    pongGame: { name: "PongGame", qtdImages: 4 },
+    trainFit: { name: "Trainfit", qtdImages: 2 },
+} as Record<slugProjects, IProjectsFolder>
 
 export abstract class ImagesProjects {
 
@@ -21,10 +23,9 @@ export abstract class ImagesProjects {
     static getImages(slug: slugProjects, quantity: "first" | "all") {
         const folderProject = foldersProjects[slug]
         if (quantity === "first") {
-            return this.imagesProject(folderProject)
+            return this.imagesProject(folderProject.name)
         } else {
-            const qtdImages = this.countImages(folderProject)
-            return this.imagesProject(folderProject, qtdImages)
+            return this.imagesProject(folderProject.name, folderProject.qtdImages)
         }
     }
 
@@ -38,18 +39,5 @@ export abstract class ImagesProjects {
             arrayImages.push(`../images/${image}/${image}${i}.jpg`)
         }
         return arrayImages
-    }
-
-    private static countImages(pathImages: string) {
-        const imageDirectory = path.join(process.cwd(), 'public', 'images', pathImages);
-
-        // Verificar se o diretório existe
-        if (!fs.existsSync(imageDirectory)) {
-            return
-        }
-
-        const files = fs.readdirSync(imageDirectory);
-
-        return files.length;
     }
 }
