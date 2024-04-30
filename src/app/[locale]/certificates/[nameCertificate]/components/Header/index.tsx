@@ -6,6 +6,7 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigge
 import { Label } from "@/components/ui/label"
 import certificates from "@/const/certificates"
 import nameCertificates from "@/types/nameCertificates"
+import { useTranslations } from "next-intl"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
 import { BsFillSunFill, BsMoonFill, BsGithub, BsLinkedin, BsWhatsapp } from "react-icons/bs"
@@ -15,6 +16,7 @@ interface HeaderProps {
   nameCertificate: nameCertificates
 }
 const Header = ({ nameCertificate }: HeaderProps) => {
+  const t = useTranslations('HeaderCertificate');
   const router = useRouter()
 
   function handleRedirect(url: nameCertificates) {
@@ -37,7 +39,7 @@ const Header = ({ nameCertificate }: HeaderProps) => {
     <header id="header" className="flex justify-center py-4 w-full sm:px-16 px-8">
       <div className="flex items-center gap-14 sm:justify-between w-full max-w-7xl">
         <div className="flex items-center gap-5">
-          
+
           <div className="relative w-7 h-7">
 
             <div id="divWhiteMode" className="opacity-0 absolute dark:opacity-100 cursor-pointer z-0 dark:z-20" onClick={event => changeTheme("white")}>
@@ -51,7 +53,7 @@ const Header = ({ nameCertificate }: HeaderProps) => {
 
           </div>
 
-          <h1 className="hidden lg:block text-2xl font-semibold dark:text-cor-darkTerciaria">Certificados</h1>
+          <h1 className="hidden lg:block text-2xl font-semibold dark:text-cor-darkTerciaria">{t("h1")}</h1>
 
         </div>
 
@@ -63,7 +65,7 @@ const Header = ({ nameCertificate }: HeaderProps) => {
           <DropdownMenu>
             <DropdownMenuTrigger className="focus:outline-none relative cursor-pointer">
               <div className="flex items-center gap-1  animacao-risco-texto">
-                <Label className="font-medium text-lg">Certificados</Label>
+                <Label className="font-medium text-lg">{t("label")}</Label>
                 <IoIosArrowDown />
               </div>
             </DropdownMenuTrigger>

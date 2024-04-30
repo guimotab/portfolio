@@ -6,10 +6,18 @@ const certificates = [
     values: [
       {
         name: "Css A Partir do Zero.jpg",
-        description: ["Html, Css e suas boas práticas.", "Responsividade.", "Desenvolver layouts modernos."]
+        description: [
+          "css1Desc1",
+          "css1Desc2",
+          "css1Desc3",
+        ]
       }, {
         name: "Css - Aprofunde Em Estilos.jpg",
-        description: ["Layouts com Grid e Flexbox.", "Sass e Tailwind.", "Grid e Flexbox na prática."]
+        description: [
+          "css2Desc1",
+          "css2Desc2",
+          "css2Desc3",
+        ]
       },
     ]
   }, {
@@ -17,7 +25,12 @@ const certificates = [
     values: [
       {
         name: "Controle e Compartilhe Com Git.jpg",
-        description: ["Funcionamento do Git.", "Utilização das Branchs e repositórios.", "Manipular as versões.", "Boas práticas ao utilizar em uma equipe/projeto."]
+        description: [
+          "gitDesc1",
+          "gitDesc2",
+          "gitDesc3",
+          "gitDesc4",
+        ]
       },
     ]
   }, {
@@ -26,9 +39,9 @@ const certificates = [
       {
         name: "Java Orientação A Objetos.jpg",
         description: [
-          "Funcionamento da linguagem.",
-          "Programação Orientada a Objetos.",
-          "Manipular listas, consumir API's e lidar com exceções."
+          "javaDesc1",
+          "javaDesc2",
+          "javaDesc3",
         ]
       }
     ]
@@ -38,18 +51,18 @@ const certificates = [
       {
         name: "Full Stack Javascript.jpg",
         description: [
-          "Desenvolver uma página React do zero.",
-          "Utilizar API CRUD.",
-          "Integrar com o banco de dados."
+          "javascript1Desc1",
+          "javascript1Desc2",
+          "javascript1Desc3",
         ]
       },
       {
         name: "Aplicações Web Com JavaScript.jpg",
         description: [
-          "Manipulação do DOM.",
-          "Armazenamento de dados no navegador.",
-          "Consumir dados de uma API.",
-          "Validação de Formulários."
+          "javascript2Desc1",
+          "javascript2Desc2",
+          "javascript2Desc3",
+          "javascript2Desc4",
         ]
       }
     ]
@@ -59,24 +72,24 @@ const certificates = [
       {
         name: "Como Os Componentes Funcionam.jpg",
         description: [
-          "Como utilizar os componentes.",
-          "Como utilizar props e states."
+          "react1Desc1",
+          "react1Desc2",
         ]
       },
       {
         name: "Desenvolvendo Com JavaScript.jpg",
         description: [
-          "Funcionalidades básicas do React.",
-          "Utilizando Props.",
-          "Atualizando os componentes."
+          "react2Desc1",
+          "react2Desc2",
+          "react2Desc3",
         ]
       },
       {
         name: "Escrevendo com Typescript.jpg",
         description: [
-          "React com Typescript do zero com Create React App.",
-          "Aprendendo a utilização de Hooks.",
-          "Limpando o código com Typescript e boas práticas."
+          "react3Desc1",
+          "react3Desc2",
+          "react3Desc3",
         ]
       }
     ]
@@ -86,8 +99,8 @@ const certificates = [
       {
         name: "Estilizando Com Tailwind.jpg",
         description: [
-          "Comandos e funcionamento do Tailwind.",
-          "Boas práticas ao utilizar."
+          "tailwindDesc1",
+          "tailwindDesc2",
         ]
       }
     ]
@@ -97,9 +110,9 @@ const certificates = [
       {
         name: "Desenvolvimento Com Typescript.jpg",
         description: [
-          "Funcionamento do Typescript.",
-          "Utilização correta das tipagens.",
-          "Funcionalidades e boas práticas."
+          "typescriptDesc1",
+          "typescriptDesc2",
+          "typescriptDesc3"
         ]
       }
     ]

@@ -9,11 +9,13 @@ import { Label } from "@/components/ui/label";
 import Header from "./components/Header";
 import { useEffect, useState } from "react";
 import Theme from "@/classes/Theme";
+import { useTranslations } from "next-intl";
 
 const Certificate = () => {
   const { nameCertificate } = useParams() as { nameCertificate: nameCertificates }
   const currentCertificates = Certificates.find(nameCertificate)
   const [canRender, setCanRender] = useState(false)
+	const t = useTranslations('CertificateIndex');
 
   useEffect(() => {
     Theme.preferenceTheme()
@@ -26,7 +28,7 @@ const Certificate = () => {
       <main className="flex flex-col items-center gap-3 w-full sm:px-10 px-8">
         <div className="w-full flex flex-col max-w-[70rem] py-8 gap-5">
           <div className="flex items-center gap-5">
-            <Label className="text-2xl font-semibold">Certificado {nameCertificate}</Label>
+            <Label className="text-2xl font-semibold">{t("h1")} {nameCertificate}</Label>
           </div>
           <div className="flex flex-col gap-5 items-center w-full">
             {currentCertificates.values.map(certificate =>

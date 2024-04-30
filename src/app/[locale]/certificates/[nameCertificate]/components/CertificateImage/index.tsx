@@ -10,7 +10,7 @@ interface CertificateImageProps {
 
 const CertificateImage = ({ certificate }: CertificateImageProps) => {
   const { nameCertificate } = useParams() as { nameCertificate: nameCertificates }
-  const urlBase = `../images/certification/${nameCertificate!.toLowerCase()}`
+  const urlBase = `../../images/certification/${nameCertificate!.toLowerCase()}`
 
   return (
     <section className="flex flex-col justify-center w-fit ">

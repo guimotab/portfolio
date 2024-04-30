@@ -10,7 +10,7 @@ export default abstract class Theme {
     if (darkThemePrefer) {
       Theme.initTheme("dark")
       localStorage.setItem("theme", "dark")
-    }
+    } 
   }
 
   static changeTheme(theme: "dark" | "white") {

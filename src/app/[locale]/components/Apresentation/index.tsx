@@ -14,8 +14,10 @@ import { FaGithub } from "react-icons/fa";
 import { Label } from "@/components/ui/label"
 import { FaRegLightbulb } from "react-icons/fa6";
 import Link from "next/link"
+import { useTranslations } from "next-intl"
 
 const Apresentation = () => {
+  const t = useTranslations('Apresentation');
   const logos = [
     {
       class: "before:content-['JavaScript']",
@@ -50,6 +52,7 @@ const Apresentation = () => {
       jsx: BiLogoGit,
     },
   ]
+
   return (
     <section className="flex flex-col items-center w-full max-w-5xl mt-8">
 
@@ -58,21 +61,21 @@ const Apresentation = () => {
         <img src="./guimotab.jpg" alt="Minha Imagem" className="object-cover w-64 h-64 rounded-full border-2 border-primary dark:border-cor-darkTerciaria" />
 
         <div className="flex flex-col items-center md:items-start min-w-fit">
-          <h1 className="font-bold text-2xl dark:text-cor-darkTerciaria">Olá, sou Guilherme Mota</h1>
-          <h2 className="text-lg font-medium dark:text-cor-darkTerciaria">Desenvolvedor Full-Stack</h2>
+          <h1 className="font-bold text-2xl dark:text-cor-darkTerciaria">{t("h1")}</h1>
+          <h2 className="text-lg font-medium dark:text-cor-darkTerciaria">{t("h2")}</h2>
           <div className="flex items-center gap-5">
             <Button
               onClick={event => scrollWindow("projects")}
               className="space-x-2 font-medium px-3 py-1 mt-2 dark:bg-cor-darkSecundaria dark:hover:bg-cor-darkHover w-fit cursor-pointer text-white rounded-md " >
               <FaRegLightbulb className="text-xl dark:text-gray-200" />
-              <Label>Meus Projetos</Label>
+              <Label>{t("btnMyProjects")}</Label>
             </Button>
             <Link target="_blank" href={"https://github.com/guimotab/portfolio"}>
               <Button
                 variant={"outline"}
                 className="space-x-3 dark:text-gray-200 font-medium px-3 py-1 mt-2 dark:bg-cor-darkSecundaria dark:hover:bg-cor-darkHover w-fit cursor-pointer rounded-md " >
                 <FaGithub className="text-xl" />
-                <Label>Portfólio</Label>
+                <Label>{t("btnCodePortfolio")}</Label>
               </Button>
             </Link>
           </div>
