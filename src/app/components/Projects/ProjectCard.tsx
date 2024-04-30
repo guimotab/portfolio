@@ -130,11 +130,11 @@ const ProjectCard = ({ item, setMouseOverProject }: ProjectCardProps) => {
 												</AlertDialogHeader>
 												<AlertDialogFooter>
 													<AlertDialogCancel>Voltar</AlertDialogCancel>
-													<AlertDialogAction>
-														<Link href={item.linkViewProject!} target="_blank" rel="noreferrer">
+													<Link href={item.linkViewProject!} target="_blank" rel="noreferrer">
+														<AlertDialogAction>
 															Continuar
-														</Link>
-													</AlertDialogAction>
+														</AlertDialogAction>
+													</Link>
 												</AlertDialogFooter>
 											</AlertDialogContent>
 										</AlertDialog>
