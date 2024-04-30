@@ -35,7 +35,7 @@ const Header = ({ nameCertificate }: HeaderProps) => {
 
   return (
     <header id="header" className="flex justify-center py-4 w-full sm:px-16 px-8">
-      <div className="flex items-center justify-between w-full max-w-7xl">
+      <div className="flex items-center gap-14 sm:justify-between w-full max-w-7xl">
         <div className="flex items-center gap-5">
           
           <div className="relative w-7 h-7">
@@ -55,7 +55,7 @@ const Header = ({ nameCertificate }: HeaderProps) => {
 
         </div>
 
-        <div className="hidden md:flex gap-3 items-center">
+        <div className="flex gap-3 items-center">
           <Link href={`/`}
             className="relative text-lg  font-medium cursor-pointer animacao-risco-texto dark:text-cor-darkTerciaria ">
             Home
@@ -78,7 +78,7 @@ const Header = ({ nameCertificate }: HeaderProps) => {
           </DropdownMenu>
         </div>
 
-        <div className="flex gap-6 md:gap-3">
+        <div className="hidden sm:flex gap-6 md:gap-3">
           {linksRedirect.map(link =>
             <a key={link.href} href={link.href} target="_blank">
               <link.icon className="w-8 md:w-6 h-8 md:h-6 text-gray-500 dark:text-gray-100 hover:text-secondary dark:hover:text-secondary " />

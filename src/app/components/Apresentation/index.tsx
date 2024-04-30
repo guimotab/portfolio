@@ -10,6 +10,10 @@ import { FaAngular } from "react-icons/fa6";
 import scrollWindow from "@/utils/scrollWindow"
 import { Button } from "@/components/ui/button"
 import LogosTechnologies from "./LogosTechnologies"
+import { FaGithub } from "react-icons/fa";
+import { Label } from "@/components/ui/label"
+import { FaRegLightbulb } from "react-icons/fa6";
+import Link from "next/link"
 
 const Apresentation = () => {
   const logos = [
@@ -56,11 +60,22 @@ const Apresentation = () => {
         <div className="flex flex-col items-center md:items-start min-w-fit">
           <h1 className="font-bold text-2xl dark:text-cor-darkTerciaria">Olá, sou Guilherme Mota</h1>
           <h2 className="text-lg font-medium dark:text-cor-darkTerciaria">Desenvolvedor Full-Stack</h2>
-          <Button
-            onClick={event => scrollWindow("projects")}
-            className="font-medium px-3 py-1 mt-2 dark:bg-cor-darkSecundaria dark:hover:bg-cor-darkHover w-fit cursor-pointer text-white rounded-md " >
-            Meus Projetos
-          </Button>
+          <div className="flex items-center gap-5">
+            <Button
+              onClick={event => scrollWindow("projects")}
+              className="space-x-2 font-medium px-3 py-1 mt-2 dark:bg-cor-darkSecundaria dark:hover:bg-cor-darkHover w-fit cursor-pointer text-white rounded-md " >
+              <FaRegLightbulb className="text-xl dark:text-gray-200" />
+              <Label>Meus Projetos</Label>
+            </Button>
+            <Link target="_blank" href={"https://github.com/guimotab/portfolio"}>
+              <Button
+                variant={"outline"}
+                className="space-x-3 dark:text-gray-200 font-medium px-3 py-1 mt-2 dark:bg-cor-darkSecundaria dark:hover:bg-cor-darkHover w-fit cursor-pointer rounded-md " >
+                <FaGithub className="text-xl" />
+                <Label>Portfólio</Label>
+              </Button>
+            </Link>
+          </div>
         </div>
 
       </div>

@@ -15,6 +15,7 @@
 
       --primary: hsl(212 64% 19%);
       --primary-foreground: hsl(210 40% 98%);
+      --primary-hover: hsl(212, 58%, 31%);
 
       --secondary: hsl(213 47% 47%);
       --secondary-foreground: hsl(222.2 47.4% 11.2%);
@@ -36,21 +37,21 @@
     }
 
     .dark {
-      --background: hsl(215, 100%, 7%);
+      --background: hsl(215 100% 7%);
       --foreground: hsl(210 40% 98%);
       
-      --card: hsla(216, 73%, 13%, 0.63);
+      --card: hsla(216 73% 13% 0.63);
       /* --card: hsl(222.2 84% 4.9%); */
       --card-foreground: hsl(210 40% 98%);
 
       --popover: hsl(222.2 84% 4.9%);
       --popover-foreground: hsl(210 40% 98%);
 
-      --primary: hsl(214, 68%, 32%);
+      --primary: hsl(214 68% 32%);
       --primary-foreground: hsl(210 40% 98%);
-      --primary-hover: hsl(214, 63%, 45%);
+      --primary-hover: hsl(214 63% 45%);
 
-      --secondary: hsl(214, 57%, 44%);
+      --secondary: hsl(214 57% 44%);
       --secondary-foreground: hsl(210 40% 98%);
 
       --muted: hsl(217.2 32.6% 17.5%);

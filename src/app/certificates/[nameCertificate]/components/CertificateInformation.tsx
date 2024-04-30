@@ -24,7 +24,7 @@ const CertificateInformation = ({ certificate }: CertificateInformationProps) =>
   }
   return (
     <section className="flex flex-col pt-4 max-w-4xl gap-6">
-      <div>
+      <div className="space-y-3">
         <div className="flex flex-col">
           <Label className="font-bold text-xl sm:text-2xl">Certificado: {certificate.name.split('.')[0]}</Label>
           <Label className="font-semibold  sm:text-lg">O que eu aprendi?</Label>

@@ -7,11 +7,14 @@ import { changeTheme } from "@/components/Theme"
 import { BiMenu } from "react-icons/bi"
 import { Sheet, SheetTrigger, SheetContent, SheetHeader, SheetTitle, SheetDescription, SheetClose } from "@/components/ui/sheet"
 import { Button } from "@/components/ui/button"
+import SheetRedirect from "./Sheet"
+import { useState } from "react"
+import { Label } from "@/components/ui/label"
 
 interface HeaderProps {
 }
 const Header = ({ }: HeaderProps) => {
-
+  const [closeSheet, setCloseSheet] = useState(false)
   const linksScrollHeader = [
     {
       id: "about_me",
@@ -41,35 +44,38 @@ const Header = ({ }: HeaderProps) => {
     },
   ]
 
+  function handleCloseSheet() {
+    setCloseSheet(false)
+  }
+  function handleOpenSheet() {
+    setCloseSheet(true)
+  }
+
   return (
     <header id="header" className="flex justify-center py-4 w-full sm:px-24 px-8">
       <div className="flex items-center justify-between w-full max-w-7xl">
         <div className="flex items-center gap-5">
 
-          <Sheet>
-            <SheetTrigger>
-              <BiMenu className="md:hidden w-12 h-12 text-primary dark:text-cor-darkTerciaria" />
-            </SheetTrigger>
-            <SheetContent>
-              <SheetHeader>
-                <SheetTitle className="text-xl">Acesso Rápido</SheetTitle>
-                <SheetDescription>
-                  <div className="flex flex-col items-center gap-3">
-                    {linksScrollHeader.map(link =>
-                      <Button variant={"ghost"} className="w-fit">
-                        <Link href={`#${link.id}`} scroll={false} key={link.id}
-                          onClick={event => scrollWindow(link.id)}
-                          className="relative text-lg text-gray-300 font-medium cursor-pointer">
-                          {link.name}
-                        </Link>
-                      </Button>
-                    )}
-                  </div>
-                </SheetDescription>
-              </SheetHeader>
-            </SheetContent>
-          </Sheet>
+          {closeSheet &&
+            <SheetRedirect closeSheet={handleCloseSheet}>
+              <div className="flex flex-col items-center pt-5 gap-5">
+                <Label className="text-lg font-medium">Acesso Rápido</Label>
+                <div className="flex flex-col items-center gap-3">
+                  {linksScrollHeader.map(link =>
+                    <Button variant={"outline"} className="w-full">
+                      <Link href={`#${link.id}`} scroll={false} key={link.id}
+                        onClick={event => scrollWindow(link.id)}
+                        className="relative text-lg dark:text-gray-300 font-medium cursor-pointer">
+                        {link.name}
+                      </Link>
+                    </Button>
+                  )}
+                </div>
+              </div>
+            </SheetRedirect>
+          }
 
+          <BiMenu onClick={handleOpenSheet} className="md:hidden w-12 h-12 text-primary dark:text-cor-darkTerciaria" />
 
           <div className="relative w-7 h-7">
 

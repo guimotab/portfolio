@@ -14,7 +14,7 @@ const CertificateImage = ({ certificate }: CertificateImageProps) => {
 
   return (
     <section className="flex flex-col justify-center w-fit ">
-      <img src={`${urlBase}/${certificate.name}`} alt="imagem-certificado" className="w-full max-w-[15rem] sm:w-80 md:max-w-[30rem] md:w-[30rem] h-full max-h-[22rem" />
+      <img src={`${urlBase}/${certificate.name}`} alt="imagem-certificado" className="w-full max-w-[30rem] h-full max-h-[22rem] rounded-md" />
     </section>
   )
 }

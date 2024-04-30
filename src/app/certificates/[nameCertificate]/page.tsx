@@ -30,7 +30,7 @@ const Certificate = () => {
           </div>
           <div className="flex flex-col gap-5 items-center w-full">
             {currentCertificates.values.map(certificate =>
-              <Card key={certificate.name} className="flex w-full gap-7 px-5 py-4  flex-wrap">
+              <Card key={certificate.name} className="flex flex-col w-fit  gap-7 px-4 sm:px-8 lg:px-5 py-4 lg:w-full lg:flex-row">
                 <CertificateImage certificate={certificate} />
                 <CertificateInformation certificate={certificate} />
               </Card>
