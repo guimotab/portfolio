@@ -6,21 +6,21 @@ import { changeTheme } from "@/components/Theme"
 import { BiMenu } from "react-icons/bi"
 import { Button } from "@/components/ui/button"
 import SheetRedirect from "./Sheet"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Label } from "@/components/ui/label"
 import scrollWindow from "@/utils/scrollWindow"
 import { useTranslations } from "next-intl"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { BR, US } from 'country-flag-icons/react/3x2'
 import { getCookie, setCookie } from 'cookies-next'
-import { redirect, usePathname, useRouter } from "next/navigation"
+import { redirect, useRouter } from "next/navigation"
 interface HeaderProps { }
 const Header = ({ }: HeaderProps) => {
   const t = useTranslations('HeaderIndex');
   const router = useRouter()
   const currentLanguage = getCookie("NEXT_LOCALE")
-
   const [closeSheet, setCloseSheet] = useState(false)
+
   const linksScrollHeader = [
     {
       id: "about_me",
@@ -113,7 +113,7 @@ const Header = ({ }: HeaderProps) => {
               </SelectItem>
               <SelectItem value="en">
                 <div className="flex items-center gap-2">
-                  <US title="United States" className="h-6 w-6" /><Label>US</Label>
+                  <US title="United States" className="h-6 w-6" /><Label>EN</Label>
                 </div>
               </SelectItem>
             </SelectContent>

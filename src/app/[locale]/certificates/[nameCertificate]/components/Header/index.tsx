@@ -19,8 +19,8 @@ interface HeaderProps {
 const Header = ({ nameCertificate }: HeaderProps) => {
   const t = useTranslations('HeaderCertificate');
   const router = useRouter()
-  const currentLanguage = getCookie("NEXT_LOCALE")
   const path = usePathname()
+  const currentLanguage = getCookie("NEXT_LOCALE") || "pt"
 
   function handleRedirect(url: nameCertificates) {
     router.push(url)
@@ -63,7 +63,7 @@ const Header = ({ nameCertificate }: HeaderProps) => {
           <h1 className="hidden lg:block text-2xl font-semibold dark:text-cor-darkTerciaria">{t("h1")}</h1>
           <Select onValueChange={event => switchLocale(event as "en" | "pt")} defaultValue={currentLanguage}>
             <SelectTrigger className="w-[100px]">
-              <SelectValue placeholder="Idioma" />
+              <SelectValue placeholder={<><BR title="Brasil" className="h-6 w-6" /><Label>PT</Label></>} />
             </SelectTrigger>
             <SelectContent>
               <SelectItem value="pt">
