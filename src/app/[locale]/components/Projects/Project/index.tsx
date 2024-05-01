@@ -18,6 +18,7 @@ import ProjectCardFeatures from "./ProjectCard/ProjectCardFeatures";
 import ProjectCardFooter from "./ProjectCard/ProjectCardFooter";
 import ProjectCardUsedTechnologies from "./ProjectCard/ProjectCardUsedTechnologies";
 import ProjectCardAvailableOn from "./ProjectCard/ProjectCardAvailableOn";
+import { useRouter } from "next/navigation";
 
 interface ProjectCardProps {
 	item: ICardProject
@@ -29,6 +30,7 @@ const Project = ({ item, setMouseOverProject }: ProjectCardProps) => {
 
 	const [openImage, setOpenImage] = useState(false)
 	const imageProject = ImagesProjects.getImages(item.slug, "first") as string
+	const router = useRouter()
 
 	function mouseEnterProject() {
 		setMouseOverProject(item.title)
@@ -51,6 +53,10 @@ const Project = ({ item, setMouseOverProject }: ProjectCardProps) => {
 		document.body.appendChild(link);
 		link.click();
 		document.body.removeChild(link);
+	}
+
+	function redirectProject(url: string) {
+		window.open(url, "_blank")
 	}
 
 	return (
@@ -111,11 +117,9 @@ const Project = ({ item, setMouseOverProject }: ProjectCardProps) => {
 									</AlertDialogHeader>
 									<AlertDialogFooter>
 										<AlertDialogCancel>{t("dialogBtnCancel")}</AlertDialogCancel>
-										<Link href={item.linkViewProject!} target="_blank" rel="noreferrer" >
-											<AlertDialogAction className="w-full">
+										<AlertDialogAction onClick={() => redirectProject(item.linkViewProject!)}>
 												{t("dialogBtnAction")}
-											</AlertDialogAction>
-										</Link>
+										</AlertDialogAction>
 									</AlertDialogFooter>
 								</AlertDialogContent>
 							</AlertDialog>
