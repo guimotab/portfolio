@@ -81,7 +81,7 @@ const Header = ({ nameCertificate }: HeaderProps) => {
         </div>
 
         <div className="flex gap-3 items-center">
-          <Link href={`/`}
+          <Link href={`/${currentLanguage}`}
             className="relative text-lg  font-medium cursor-pointer animacao-risco-texto dark:text-cor-darkTerciaria ">
             Home
           </Link>
