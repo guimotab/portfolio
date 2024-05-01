@@ -1,4 +1,5 @@
 import scrollWindow from "@/utils/scrollWindow"
+import { getCookie } from "cookies-next"
 import Link from "next/link"
 import { useEffect, useState } from "react"
 import { BsFillArrowUpCircleFill } from "react-icons/bs"
@@ -6,6 +7,7 @@ import { BsFillArrowUpCircleFill } from "react-icons/bs"
 const RollTopPage = () => {
 
   const [rollTopPage, setRollTopPage] = useState(false)
+  const currentLanguage = getCookie("NEXT_LOCALE")
 
   useEffect(() => {
     document.addEventListener('scroll', rollPage)
@@ -24,7 +26,7 @@ const RollTopPage = () => {
   }
 
   return rollTopPage && (
-    <Link href={"/#header"} scroll={false}
+    <Link href={`${currentLanguage}/#header`} scroll={false}
       className="fixed bottom-10 right-10 text-primary z-20 hover:cursor-pointer dark:text-gray-200" >
       <BsFillArrowUpCircleFill
         onClick={event => scrollWindow("header")}

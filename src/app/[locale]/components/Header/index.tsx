@@ -13,7 +13,7 @@ import { useTranslations } from "next-intl"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { BR, US } from 'country-flag-icons/react/3x2'
 import { getCookie, setCookie } from 'cookies-next'
-import { redirect, useRouter } from "next/navigation"
+import { useRouter } from "next/navigation"
 interface HeaderProps { }
 const Header = ({ }: HeaderProps) => {
   const t = useTranslations('HeaderIndex');
