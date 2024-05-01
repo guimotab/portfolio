@@ -1,14 +1,15 @@
 "use client"
-
-import Theme from "@/classes/Theme"
 import { changeTheme } from "@/components/Theme"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { Label } from "@/components/ui/label"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import certificates from "@/const/certificates"
 import nameCertificates from "@/types/nameCertificates"
+import { getCookie, setCookie } from "cookies-next"
+import { BR, US } from "country-flag-icons/react/3x2"
 import { useTranslations } from "next-intl"
 import Link from "next/link"
-import { useRouter } from "next/navigation"
+import { usePathname, useRouter } from "next/navigation"
 import { BsFillSunFill, BsMoonFill, BsGithub, BsLinkedin, BsWhatsapp } from "react-icons/bs"
 import { IoIosArrowDown } from "react-icons/io";
 
@@ -18,6 +19,8 @@ interface HeaderProps {
 const Header = ({ nameCertificate }: HeaderProps) => {
   const t = useTranslations('HeaderCertificate');
   const router = useRouter()
+  const currentLanguage = getCookie("NEXT_LOCALE")
+  const path = usePathname()
 
   function handleRedirect(url: nameCertificates) {
     router.push(url)
@@ -34,10 +37,14 @@ const Header = ({ nameCertificate }: HeaderProps) => {
       icon: BsWhatsapp,
     },
   ]
-
+  function switchLocale(newLanguage: "en" | "pt") {
+    const newPath = path.replace(`/${currentLanguage}/`, `/${newLanguage}/`)
+    setCookie("NEXT_LOCALE", newLanguage)
+    router.replace(newPath)
+  }
   return (
-    <header id="header" className="flex justify-center py-4 w-full sm:px-16 px-8">
-      <div className="flex items-center gap-14 sm:justify-between w-full max-w-7xl">
+    <header id="header" className="flex justify-center py-4 w-full sm:px-10 md:px-16 px-8">
+      <div className="flex items-center justify-between w-full max-w-7xl">
         <div className="flex items-center gap-5">
 
           <div className="relative w-7 h-7">
@@ -54,7 +61,23 @@ const Header = ({ nameCertificate }: HeaderProps) => {
           </div>
 
           <h1 className="hidden lg:block text-2xl font-semibold dark:text-cor-darkTerciaria">{t("h1")}</h1>
-
+          <Select onValueChange={event => switchLocale(event as "en" | "pt")} defaultValue={currentLanguage}>
+            <SelectTrigger className="w-[100px]">
+              <SelectValue placeholder="Idioma" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="pt">
+                <div className="flex items-center gap-2">
+                  <BR title="Brasil" className="h-6 w-6" /><Label>PT</Label>
+                </div>
+              </SelectItem>
+              <SelectItem value="en">
+                <div className="flex items-center gap-2">
+                  <US title="United States" className="h-6 w-6" /><Label>US</Label>
+                </div>
+              </SelectItem>
+            </SelectContent>
+          </Select>
         </div>
 
         <div className="flex gap-3 items-center">
@@ -83,7 +106,7 @@ const Header = ({ nameCertificate }: HeaderProps) => {
         <div className="hidden sm:flex gap-6 md:gap-3">
           {linksRedirect.map(link =>
             <a key={link.href} href={link.href} target="_blank">
-              <link.icon className="w-8 md:w-6 h-8 md:h-6 text-gray-500 dark:text-gray-100 hover:text-secondary dark:hover:text-secondary " />
+              <link.icon className="w-6 h-6 text-gray-500 dark:text-gray-100 hover:text-secondary dark:hover:text-secondary " />
             </a>
           )}
         </div>

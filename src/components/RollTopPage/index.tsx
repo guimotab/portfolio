@@ -25,7 +25,7 @@ const RollTopPage = () => {
 
   return rollTopPage && (
     <Link href={"/#header"} scroll={false}
-      className="fixed bottom-20 right-10 text-primary z-20 hover:cursor-pointer dark:text-gray-200" >
+      className="fixed bottom-10 right-10 text-primary z-20 hover:cursor-pointer dark:text-gray-200" >
       <BsFillArrowUpCircleFill
         onClick={event => scrollWindow("header")}
         size={45}

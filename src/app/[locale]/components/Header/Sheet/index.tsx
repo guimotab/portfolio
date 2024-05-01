@@ -6,7 +6,6 @@ interface SheetProps {
 }
 const SheetRedirect = ({ children, closeSheet }: SheetProps) => {
   const t = useTranslations('teste');
-  console.log("🚀 ~ Home ~ t:", t("title"))
   return (
     <>
       <div className="fixed inset-0 z-50 bg-black/10 dark:bg-black/40">

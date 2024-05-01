@@ -13,7 +13,7 @@ export default function Home() {
   const [canRender, setCanRender] = useState(false)
   useEffect(() => {
     Theme.preferenceTheme()
-    setCanRender(true)
+    setCanRender(true) 
   }, []);
   return canRender && (
 

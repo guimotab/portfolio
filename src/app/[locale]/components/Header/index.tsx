@@ -10,11 +10,15 @@ import { useState } from "react"
 import { Label } from "@/components/ui/label"
 import scrollWindow from "@/utils/scrollWindow"
 import { useTranslations } from "next-intl"
-
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { BR, US } from 'country-flag-icons/react/3x2'
+import { getCookie, setCookie } from 'cookies-next'
+import { redirect, usePathname, useRouter } from "next/navigation"
 interface HeaderProps { }
 const Header = ({ }: HeaderProps) => {
-
   const t = useTranslations('HeaderIndex');
+  const router = useRouter()
+  const currentLanguage = getCookie("NEXT_LOCALE")
 
   const [closeSheet, setCloseSheet] = useState(false)
   const linksScrollHeader = [
@@ -56,6 +60,10 @@ const Header = ({ }: HeaderProps) => {
     scrollWindow(id)
     handleCloseSheet()
   }
+  function switchLocale(newLanguage: "en" | "pt") {
+    setCookie("NEXT_LOCALE", newLanguage)
+    router.replace(`/${newLanguage}`)
+  }
 
   return (
     <header id="header" className="flex justify-center py-4 w-full sm:px-10 px-8">
@@ -80,24 +88,39 @@ const Header = ({ }: HeaderProps) => {
             </SheetRedirect>
           }
 
-          <BiMenu onClick={handleOpenSheet} className="sm:hidden w-10 h-10 text-primary dark:text-white" />
+          <BiMenu onClick={handleOpenSheet} className="md:hidden w-10 h-10 text-primary dark:text-white" />
 
           <div className="relative w-7 h-7">
-
             <div id="divWhiteMode" className="opacity-0 absolute dark:opacity-100 cursor-pointer z-0 dark:z-20" onClick={event => changeTheme("white")}>
               <BsFillSunFill id="themeWhite" className="text-primary  w-8 h-8 md:w-7 md:h-7 dark:text-white " />
             </div>
             <div id="divDarkMode" className="cursor-pointer absolute dark:opacity-0 z-20 dark:z-0" onClick={event => changeTheme("dark")}>
               <BsMoonFill id="themeDark" className="text-primary  w-7 h-7 md:w-6 md:h-6 dark:text-white" />
             </div>
-
           </div>
 
           <h1 className="hidden lg:block text-2xl font-semibold dark:text-cor-darkTerciaria">Guilherme Mota</h1>
 
+          <Select onValueChange={event => switchLocale(event as "en" | "pt")} defaultValue={currentLanguage}>
+            <SelectTrigger className="w-[100px]">
+              <SelectValue placeholder="Idioma" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="pt">
+                <div className="flex items-center gap-2">
+                  <BR title="Brasil" className="h-6 w-6" /><Label>PT</Label>
+                </div>
+              </SelectItem>
+              <SelectItem value="en">
+                <div className="flex items-center gap-2">
+                  <US title="United States" className="h-6 w-6" /><Label>US</Label>
+                </div>
+              </SelectItem>
+            </SelectContent>
+          </Select>
         </div>
 
-        <div className="hidden sm:flex gap-3 items-center">
+        <div className="hidden md:flex gap-3 items-center">
           {linksScrollHeader.map(link =>
             <Link href={`#${link.id}`} scroll={false} key={link.id}
               onClick={event => scrollWindow(link.id)}
@@ -110,10 +133,11 @@ const Header = ({ }: HeaderProps) => {
         <div className="flex gap-6 md:gap-3">
           {linksRedirect.map(link =>
             <a key={link.href} href={link.href} target="_blank">
-              <link.icon className="w-7 h-7 md:w-6 md:h-6 text-gray-500 dark:text-gray-100 hover:text-secondary dark:hover:text-secondary " />
+              <link.icon className="w-6 h-6 text-gray-500 dark:text-gray-100 hover:text-secondary dark:hover:text-secondary " />
             </a>
           )}
         </div>
+
 
       </div>
     </header >

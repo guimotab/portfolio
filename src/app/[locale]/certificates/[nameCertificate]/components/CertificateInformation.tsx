@@ -1,10 +1,8 @@
 "use client"
-import Certificates from "@/classes/Certificates"
 import { Button } from "@/components/ui/button"
 import { Label } from "@/components/ui/label"
 import nameCertificates from "@/types/nameCertificates"
 import { useTranslations } from "next-intl"
-import Link from "next/link"
 import { useParams } from "next/navigation"
 import { MdFileDownload } from "react-icons/md";
 interface CertificateInformationProps {
@@ -27,7 +25,7 @@ const CertificateInformation = ({ certificate }: CertificateInformationProps) =>
   return (
     <section className="flex flex-col pt-4 max-w-4xl gap-6">
       <div className="space-y-3">
-        <div className="flex flex-col">
+        <div className="flex flex-col gap-1">
           <Label className="font-bold text-xl sm:text-2xl">{t("h1")} {certificate.name.split('.')[0]}</Label>
           <Label className="font-semibold  sm:text-lg">{t("label")}</Label>
         </div>
