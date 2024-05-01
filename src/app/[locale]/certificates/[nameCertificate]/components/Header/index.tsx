@@ -73,7 +73,7 @@ const Header = ({ nameCertificate }: HeaderProps) => {
               </SelectItem>
               <SelectItem value="en">
                 <div className="flex items-center gap-2">
-                  <US title="United States" className="h-6 w-6" /><Label>US</Label>
+                  <US title="United States" className="h-6 w-6" /><Label>EN</Label>
                 </div>
               </SelectItem>
             </SelectContent>
