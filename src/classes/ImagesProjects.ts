@@ -11,6 +11,7 @@ const foldersProjects = {
     organoTable: { name: "OrganoTable", qtdImages: 4 },
     pongGame: { name: "PongGame", qtdImages: 4 },
     trainFit: { name: "Trainfit", qtdImages: 2 },
+    chatworker: { name: "ChatWorker", qtdImages: 1 },
 } as Record<slugProjects, IProjectsFolder>
 
 export abstract class ImagesProjects {

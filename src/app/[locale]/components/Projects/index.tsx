@@ -1,4 +1,4 @@
-import ProjectCard from "./ProjectCard"
+import Project from "./Project"
 import { useEffect, useState } from "react"
 import projects from "@/const/projects"
 import { useTranslations } from "next-intl";
@@ -36,7 +36,7 @@ const Projects = () => {
         <h1 className='self-start font-bold text-2xl dark:text-gray-200'>{t("h1")}</h1>
         <div className='grid grid-cols-1 w-full justify-between gap-5 lg:grid-cols-2'>
           {projects.map((item, index) =>
-            <ProjectCard
+            <Project
               key={index}
               setMouseOverProject={setMouseOverProject}
               item={item}

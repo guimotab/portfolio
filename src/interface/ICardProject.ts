@@ -4,12 +4,13 @@ export default interface ICardProject {
   slug: slugProjects
   title: string,
   resume: string
-  functionalities: string[]
+  features: string[]
   altProject: string,
   linkViewProject?: string,
-  linkViewCode: string,
+  linkViewCode?: string,
   downloadApp?: string,
   needBackend?: boolean
+  comingSoon?: boolean
   logosTechnologies: JSX.Element[],
   support: "Celular" | "Computador" | "Responsivo"
 }

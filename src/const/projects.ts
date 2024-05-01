@@ -1,12 +1,34 @@
 import ICardProject from "@/interface/ICardProject";
 import handleLogosTechnologies from "@/utils/handleLogosTechnologies";
 
+/**
+ * Array contendo os projetos, sendo o resume e features modificados nos arquivos em messages/.json
+ */
 const projects = [
+  {
+    slug: "chatworker",
+    title: "ChatWorker",
+    resume: "chatWorkerDesc",
+    features: [
+      "chatWorkerF1",
+      "chatWorkerF2",
+      "chatWorkerF3",
+      "chatWorkerF4",
+      "chatWorkerF5",
+      "chatWorkerF6",
+      "chatWorkerF7",
+      "chatWorkerF8",
+    ],
+    comingSoon: true,
+    altProject: "Projeto ChatWorker",
+    logosTechnologies: handleLogosTechnologies(["Nextjs", "React", "Typescript", "Tailwind", "Postgre", "MongoDB"])!,
+    support: "Responsivo"
+  },
   {
     slug: "iceCenter",
     title: "Ice Center",
     resume: "iceCenterDesc",
-    functionalities: [
+    features: [
       "iceCenterF1",
       "iceCenterF2",
       "iceCenterF3",
@@ -23,9 +45,9 @@ const projects = [
   },
   {
     slug: "trainFit",
-    title: "TrainFit",
+    title: "TrainFit (Mobile)",
     resume: "trainFitDesc",
-    functionalities: [
+    features: [
       "trainFitF1",
       "trainFitF2",
       "trainFitF3",
@@ -41,7 +63,7 @@ const projects = [
     slug: "guiBank",
     title: "GuiBank",
     resume: "guiBankDesc",
-    functionalities: [
+    features: [
       "guiBankF1",
       "guiBankF2",
       "guiBankF3",
@@ -58,7 +80,7 @@ const projects = [
     slug: "organoTable",
     title: "OrganoTable",
     resume: "organoTableDesc",
-    functionalities: [
+    features: [
       "organoTableF1",
       "organoTableF2",
       "organoTableF3",
@@ -73,7 +95,7 @@ const projects = [
     slug: "pongGame",
     title: "Pong Game",
     resume: "pongGameDesc",
-    functionalities: [
+    features: [
       "pongGameF1",
       "pongGameF2",
     ],

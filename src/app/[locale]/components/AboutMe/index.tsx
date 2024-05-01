@@ -22,16 +22,14 @@ const AboutMe = () => {
       <div className="grid grid-rows-[auto_auto_auto] gap-y-5 lg:gap-y-0 lg:grid-rows-[auto] lg:grid-cols-[1fr_auto] gap-x-5">
         <h1 className="font-bold text-2xl dark:text-gray-200 h-fit">{t("h1")}</h1>
 
-        <p className="row-start-2 dark:text-gray-200">
-          {t("p1")}<strong>{t("p2")}</strong><br /><br />
-          {t("p3")}<strong>{t("p4")}</strong>{t("p5")}<strong>{t("p6")}</strong>{t("p7")}<br /><br />
-          {t("p8")}<strong>{t("p9")}</strong>{t("p10")}
-          <strong>{t("p11")}</strong>{t("p12")}<br /><br />
-          {t("p13")}<strong>{t("p14")}</strong>
-          {t("p15")}<strong>{t("p16")}</strong>{t("p17")}<br /><br />
-          {t("p18")}<strong>{t("p19")}</strong>{t("p20")}<strong>{t("p21")}</strong>{t("p22")}<br /><br />
-          {t("p23")}<strong>{t("p24")}</strong>.
-        </p>
+        <div className="flex flex-col row-start-2 gap-5 dark:text-gray-200">
+          <p>{t("p1")}<strong>{t("p2")}</strong></p>
+          <p>{t("p3")}<strong>{t("p4")}</strong>{t("p5")}<strong>{t("p6")}</strong>{t("p7")}</p>
+          <p>{t("p8")}<strong>{t("p9")}</strong>{t("p10")}<strong>{t("p11")}</strong>{t("p12")}</p>
+          <p>{t("p13")}<strong>{t("p14")}</strong>{t("p15")}<strong>{t("p16")}</strong>{t("p17")}</p>
+          <p>{t("p18")}<strong>{t("p19")}</strong>{t("p20")}<strong>{t("p21")}</strong>{t("p22")}</p>
+          <p>{t("p23")}<strong>{t("p24")}</strong></p>
+        </div>
 
         <div className="row-span-2 relative flex gap-3 h-fit max-h-92 lg:h-full">
           <div className="grid grid-rows-[auto_auto_auto] h-full max-h-[20rem] z-10 gap-9">

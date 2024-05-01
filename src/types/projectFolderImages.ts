@@ -1,1 +1,1 @@
-export type projectFolderImages = "Guibank" | "OrganoTable" | "PongGame" | "Trainfit" | "IceCenter"
+export type projectFolderImages = "Guibank" | "OrganoTable" | "PongGame" | "Trainfit" | "IceCenter" | "ChatWorker"
