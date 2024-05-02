@@ -44,30 +44,34 @@ const AboutMe = () => {
           </div>
         </div>
 
-        <div className="row-span-2 relative flex gap-3  h-fit ">
+        <div className="row-span-2 relative flex gap-3 h-fit ">
           <div className="absolute h-full w-1.5 bg-primary dark:bg-cor-darkSecundaria ml-[6px] my-2" />
-          <div className="grid grid-rows-[auto_auto_auto] h-full  justify-start gap-3">
+          <div className="grid grid-rows-[auto_auto_auto] h-full justify-start gap-3">
             {myExperience.map(experience =>
               <div className="flex gap-4 min-h-[4rem]">
                 <div className="relative h-fit mt-1">
                   <div className="p-1.5 border-4 border-primary dark:border-secondary bg-white rounded-full dark:bg-background"></div>
                 </div>
                 <div key={experience.title} className="h-fit">
-                  <div className="flex  gap-1">
+
+                  <div className="flex gap-1">
                     {experience.icon}
                     <p className="text-xl font-medium dark:text-gray-200">{experience.title}</p>
                   </div>
+
                   <div className="flex items-center gap-1">
                     <IoMdTime />
                     <p className="font-medium dark:text-gray-200">{experience.time}</p>
                   </div>
-                  <div className="space-y-1.5">
+
+                  <div className="space-y-1.5 ml-5">
                     {experience.desc?.map(whatIDid =>
                       <div>
                         <Label className="text-gray-500 dark:text-gray-400">{whatIDid}</Label>
                       </div>
                     )}
                   </div>
+
                 </div>
               </div>
             )}
