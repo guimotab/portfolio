@@ -150,7 +150,7 @@ const Project = ({ item, setMouseOverProject }: ProjectCardProps) => {
 							<>
 								<Button className="space-x-2 py-1.5 h-fit" variant={"outline"} disabled>
 									<FaRegEye size={18} className=" dark:text-gray-200" />
-									<p className="text-white text-sm font-medium">{t("btnViewProject")}</p>
+									<p className="text-sm font-medium">{t("btnViewProject")}</p>
 								</Button>
 								<Button className="space-x-2 py-1.5 h-fit" variant={"outline"} disabled>
 									<FaGithub size={18} className=" dark:text-gray-200" />
