@@ -25,14 +25,14 @@ const Certificate = () => {
   return canRender && currentCertificates && (
     <>
       <Header nameCertificate={nameCertificate} />
-      <main className="flex flex-col items-center gap-3 w-full sm:px-10 px-8">
+      <main className="flex flex-col items-center gap-3 w-full sm:px-10 px-4">
         <div className="w-full flex flex-col max-w-[70rem] py-8 gap-5">
           <div className="flex items-center gap-5">
             <Label className="text-2xl font-semibold">{t("h1")} {nameCertificate}</Label>
           </div>
           <div className="flex flex-col gap-5 items-center w-full">
             {currentCertificates.values.map(certificate =>
-              <Card key={certificate.name} className="flex flex-col w-fit  gap-7 px-4 sm:px-8 lg:px-5 py-4 lg:w-full lg:flex-row">
+              <Card key={certificate.name} className="flex flex-col w-fit lg:gap-7 px-4 sm:px-8 lg:px-5 py-4 lg:w-full lg:flex-row">
                 <CertificateImage certificate={certificate} />
                 <CertificateInformation certificate={certificate} />
               </Card>
