@@ -20,6 +20,7 @@ const Header = ({ }: HeaderProps) => {
   const router = useRouter()
   const currentLanguage = getCookie("NEXT_LOCALE")
   const [closeSheet, setCloseSheet] = useState(false)
+  const body = document.getElementsByTagName("body")[0]!
 
   const linksScrollHeader = [
     {
@@ -51,9 +52,11 @@ const Header = ({ }: HeaderProps) => {
   ]
 
   function handleCloseSheet() {
+    body.classList.remove("overflow-y-hidden")
     setCloseSheet(false)
   }
   function handleOpenSheet() {
+    body.classList.add("overflow-y-hidden")
     setCloseSheet(true)
   }
   function handleScrollWindow(id: string) {

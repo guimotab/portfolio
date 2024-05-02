@@ -10,7 +10,7 @@ export default abstract class Theme {
     if (darkThemePrefer) {
       Theme.initTheme("dark")
       localStorage.setItem("theme", "dark")
-    } 
+    }
   }
 
   static changeTheme(theme: "dark" | "white") {
@@ -21,10 +21,9 @@ export default abstract class Theme {
     const body = document.getElementsByTagName("body")[0]!
     if (themeMode === "dark") {
       this.changeClasses(body, "add", ["overflow-x-hidden", "dark"])
-      this.changeClasses(body, "remove", ["overflow-x-opacity-0"])
     } else {
-      this.changeClasses(body, "add", ["overflow-x-opacity-0"])
-      this.changeClasses(body, "remove", ["overflow-x-hidden", "dark"])
+      this.changeClasses(body, "add", ["overflow-x-hidden"])
+      this.changeClasses(body, "remove", ["dark"])
     }
   }
 

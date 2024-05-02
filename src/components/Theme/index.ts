@@ -6,8 +6,7 @@ export function changeTheme(themeMode: string) {
   const divWhiteMode = document.getElementById("divWhiteMode")!
 
   if (themeMode === "dark") {
-    changeClasses(body, "add", ["overflow-x-hidden", "dark"])
-    changeClasses(body, "remove", ["overflow-x-opacity-0"])
+    changeClasses(body, "add", ["dark"])
 
     changeClasses(divDarkMode, "remove", ["opacity-100", "animate-slideinTheme", "z-20"])
     changeClasses(divDarkMode, "add", ["opacity-0", "animate-slideOutTheme", "z-0"])
@@ -16,8 +15,7 @@ export function changeTheme(themeMode: string) {
     changeClasses(divWhiteMode, "add", ["opacity-100", "animate-slideinTheme", "z-20"])
     Theme.changeTheme("dark")
   } else {
-    changeClasses(body, "add", ["overflow-x-opacity-0"])
-    changeClasses(body, "remove", ["overflow-x-hidden", "dark"])
+    changeClasses(body, "remove", ["dark"])
 
     changeClasses(divDarkMode, "remove", ["opacity-0", "animate-slideOutTheme", "z-0"])
     changeClasses(divDarkMode, "add", ["opacity-100", "animate-slideinTheme", "z-20"])
