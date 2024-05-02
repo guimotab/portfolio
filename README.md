@@ -1,6 +1,6 @@
 ## Visualização na Web
 
-Acesse o link <https://portfolio-guimotab.vercel.app/> para visualizar o portfolio!
+Acesse o link <https://portfolio-guimotab.vercel.app/pt> para visualizar o portfolio!
 
 ## Requisitos para rodar o projeto
 * NodeJs instalado ( [baixar](https://nodejs.org/en/download) )
