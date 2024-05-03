@@ -54,7 +54,7 @@ const projects = [
       "trainFitF4",
     ],
     altProject: "Projeto Trainfit",
-    linkViewCode: "https://github.com/guimotab/trainFit.git",
+    linkViewCode: "https://github.com/guimotab/trainfit-mobile.git",
     downloadApp: "../apk/trainfit.apk",
     logosTechnologies: handleLogosTechnologies(["React", "Typescript", "Css", "Html", "Expo"])!,
     support: "Celular"
