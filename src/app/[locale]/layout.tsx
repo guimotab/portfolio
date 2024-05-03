@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { NextIntlClientProvider, useMessages } from "next-intl";
+import { Analytics } from "@vercel/analytics/react"
 
 export const metadata: Metadata = {
   title: "Guimotab's Portfolio",
@@ -9,16 +10,19 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-  params: { locale } 
+  params: { locale }
 }: Readonly<{
   children: React.ReactNode;
   params: { locale: string };
-}>) {  
+}>) {
   const messages = useMessages()
   return (
     <html lang={locale}>
       <NextIntlClientProvider locale={locale} messages={messages}>
-        <body>{children}</body>
+        <body>
+          {children}
+          <Analytics />
+        </body>
       </NextIntlClientProvider>
     </html>
   );
