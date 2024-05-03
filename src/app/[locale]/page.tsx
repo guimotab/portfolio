@@ -8,6 +8,7 @@ import Certificates from "./components/Certificates";
 import Contacts from "./components/Contacts";
 import Header from "./components/Header";
 import Projects from "./components/Projects";
+import { Analytics } from "@vercel/analytics/react"
 
 export default function Home() {
   const [canRender, setCanRender] = useState(false)
@@ -18,6 +19,7 @@ export default function Home() {
   return canRender && (
 
     <main className="flex min-h-screen flex-col items-center ">
+      <Analytics />
       <Header />
       <div className="flex flex-col items-center gap-5 max-w-[86rem] z-10 px-4 sm:px-10">
         <RollTopPage />
