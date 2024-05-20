@@ -48,7 +48,7 @@ const AboutMe = () => {
           <div className="absolute h-full w-1.5 bg-primary dark:bg-cor-darkSecundaria ml-[6px] my-2" />
           <div className="grid grid-rows-[auto_auto_auto] h-full justify-start gap-3">
             {myExperience.map(experience =>
-              <div className="flex gap-4 min-h-[4rem]">
+              <div key={experience.title} className="flex gap-4 min-h-[4rem]">
                 <div className="relative h-fit mt-1">
                   <div className="p-1.5 border-4 border-primary dark:border-secondary bg-white rounded-full dark:bg-background"></div>
                 </div>
@@ -66,9 +66,7 @@ const AboutMe = () => {
 
                   <div className="space-y-1.5 ml-5">
                     {experience.desc?.map(whatIDid =>
-                      <div>
-                        <Label className="text-gray-500 dark:text-gray-400">{whatIDid}</Label>
-                      </div>
+                      <Label key={whatIDid} className="text-gray-500 dark:text-gray-400">{whatIDid}</Label>
                     )}
                   </div>
 
