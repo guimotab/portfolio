@@ -7,7 +7,6 @@ import { BiLogoJava } from "react-icons/bi"
 import { BiLogoGit } from "react-icons/bi"
 import { TbBrandNextjs } from "react-icons/tb";
 import { FaAngular } from "react-icons/fa6";
-import scrollWindow from "@/utils/scrollWindow"
 import { Button } from "@/components/ui/button"
 import LogosTechnologies from "./LogosTechnologies"
 import { FaGithub } from "react-icons/fa";
@@ -15,8 +14,11 @@ import { Label } from "@/components/ui/label"
 import { FaRegLightbulb } from "react-icons/fa6";
 import Link from "next/link"
 import { useTranslations } from "next-intl"
+import { useParams } from "next/navigation"
+import { IoDocumentTextSharp } from "react-icons/io5";
 
 const Apresentation = () => {
+  const params = useParams<{ locale: string }>()
   const t = useTranslations('Apresentation');
   const logos = [
     {
@@ -53,6 +55,15 @@ const Apresentation = () => {
     },
   ]
 
+  function handleDownloadApp() {
+		const link = document.createElement('a');
+		link.href = `../cv/profile(${params.locale}).pdf`;
+		link.download = `profile(${params.locale}).pdf`;
+		document.body.appendChild(link);
+		link.click();
+		document.body.removeChild(link);
+	}
+
   return (
     <section className="flex flex-col items-center w-full max-w-5xl mt-8">
 
@@ -65,10 +76,10 @@ const Apresentation = () => {
           <h2 className="text-lg font-medium dark:text-cor-darkTerciaria">{t("h2")}</h2>
           <div className="flex items-center gap-5">
             <Button
-              onClick={event => scrollWindow("projects")}
+              onClick={handleDownloadApp}
               className="space-x-2 font-medium px-3 py-1 mt-2 dark:bg-cor-darkSecundaria dark:hover:bg-cor-darkHover w-fit cursor-pointer text-white rounded-md " >
               <FaRegLightbulb className="text-xl dark:text-gray-200" />
-              <Label>{t("btnMyProjects")}</Label>
+              <Label>{t("btnDownloadCv")}</Label>
             </Button>
             <Link target="_blank" href={"https://github.com/guimotab/portfolio"}>
               <Button
