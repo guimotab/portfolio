@@ -64,7 +64,7 @@ const AboutMe = () => {
                     <p className="font-medium dark:text-gray-200">{experience.time}</p>
                   </div>
 
-                  <div className="space-y-1.5 ml-5">
+                  <div className="space-y-1.5 space-x-1 ml-5">
                     {experience.desc?.map(whatIDid =>
                       <Label key={whatIDid} className="text-gray-500 dark:text-gray-400">{whatIDid}</Label>
                     )}

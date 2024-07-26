@@ -39,7 +39,6 @@ const projects = [
     altProject: "Projeto IceCenter",
     linkViewProject: "https://icecenter.vercel.app/",
     linkViewCode: "https://github.com/guimotab/iceCenter",
-    needBackend: true,
     logosTechnologies: handleLogosTechnologies(["Nextjs", "React", "Typescript", "Tailwind", "Postgre"])!,
     support: "Responsivo"
   },
