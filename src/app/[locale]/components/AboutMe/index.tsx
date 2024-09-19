@@ -11,6 +11,19 @@ const AboutMe = () => {
   const t = useTranslations('AboutMe');
   const myExperience = [
     {
+      title: t("experienceTCETitle"),
+      icon: <LuBuilding2 className="min-h-4 min-w-4 mt-2" />,
+      time: t("experienceTCETime"),
+      desc: [
+        t("experienceTCEDesc1"),
+        t("experienceTCEDesc2"),
+        t("experienceTCEDesc3"),
+        t("experienceTCEDesc4"),
+        t("experienceTCEDesc5"),
+        t("experienceTCEDesc6"),
+      ],
+    },
+    {
       title: t("experienceOneTitle"),
       icon: <LuBuilding2 className="min-h-4 min-w-4 mt-2" />,
       time: t("experienceOneTime"),
@@ -20,12 +33,14 @@ const AboutMe = () => {
         t("experienceOneDesc3"),
         t("experienceOneDesc4"),
       ],
-    }, {
+    },
+    {
       title: t("experienceTwoTitle"),
       icon: <HiAcademicCap className="min-h-4 min-w-4 mt-2" />,
       time: t("experienceTwoTime"),
       desc: [t("experienceTwoDesc")],
-    }, {
+    },
+    {
       title: t("experienceThreeTitle"),
       icon: <FaBook className="min-h-4 min-w-4 mt-2" />,
       time: t("experienceThreeTime"),
@@ -64,11 +79,11 @@ const AboutMe = () => {
                     <p className="font-medium dark:text-gray-200">{experience.time}</p>
                   </div>
 
-                  <div className="space-y-1.5 space-x-1 ml-5">
+                  <ul className="flex flex-col gap-2 ml-5 mt-2">
                     {experience.desc?.map(whatIDid =>
-                      <Label key={whatIDid} className="text-gray-500 dark:text-gray-400">{whatIDid}</Label>
+                      <Label key={whatIDid} className="text-gray-500 dark:text-gray-400 leading-[18px]">- {whatIDid}</Label>
                     )}
-                  </div>
+                  </ul>
 
                 </div>
               </div>

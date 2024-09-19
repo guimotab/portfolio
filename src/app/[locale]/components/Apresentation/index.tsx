@@ -1,5 +1,5 @@
 "use client"
-import { BiLogoJavascript } from "react-icons/bi"
+import { BiLogoJavascript, BiLogoPostgresql } from "react-icons/bi"
 import { BiLogoTypescript } from "react-icons/bi"
 import { BiLogoReact } from "react-icons/bi"
 import { BiLogoTailwindCss } from "react-icons/bi"
@@ -15,14 +15,13 @@ import { FaRegLightbulb } from "react-icons/fa6";
 import Link from "next/link"
 import { useTranslations } from "next-intl"
 import { useParams } from "next/navigation"
-import { IoDocumentTextSharp } from "react-icons/io5";
 
 const Apresentation = () => {
   const params = useParams<{ locale: string }>()
   const t = useTranslations('Apresentation');
   const logos = [
     {
-      class: "before:content-['JavaScript']",
+      class: "before:content-['Javascript']",
       jsx: BiLogoJavascript,
     },
     {
@@ -53,16 +52,20 @@ const Apresentation = () => {
       class: "before:content-['Git']",
       jsx: BiLogoGit,
     },
+    {
+      class: "before:content-['PostgreSQL']",
+      jsx: BiLogoPostgresql,
+    },
   ]
 
   function handleDownloadApp() {
-		const link = document.createElement('a');
-		link.href = `../cv/profile(${params.locale}).pdf`;
-		link.download = `profile(${params.locale}).pdf`;
-		document.body.appendChild(link);
-		link.click();
-		document.body.removeChild(link);
-	}
+    const link = document.createElement('a');
+    link.href = `../cv/profile(${params.locale}).pdf`;
+    link.download = `profile(${params.locale}).pdf`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  }
 
   return (
     <section className="flex flex-col items-center w-full max-w-5xl mt-8">
