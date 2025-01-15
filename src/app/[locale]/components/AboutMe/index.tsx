@@ -21,6 +21,7 @@ const AboutMe = () => {
         t("experienceTCEDesc4"),
         t("experienceTCEDesc5"),
         t("experienceTCEDesc6"),
+        t("experienceTCEDesc7"),
       ],
     },
     {
@@ -31,7 +32,6 @@ const AboutMe = () => {
         t("experienceOneDesc1"),
         t("experienceOneDesc2"),
         t("experienceOneDesc3"),
-        t("experienceOneDesc4"),
       ],
     },
     {
@@ -79,9 +79,11 @@ const AboutMe = () => {
                     <p className="font-medium dark:text-gray-200">{experience.time}</p>
                   </div>
 
-                  <ul className="flex flex-col gap-2 ml-5 mt-2">
+                  <ul className="flex flex-col gap-2 ml-5 mt-2 list-disc">
                     {experience.desc?.map(whatIDid =>
-                      <Label key={whatIDid} className="text-gray-500 dark:text-gray-400 leading-[18px]">- {whatIDid}</Label>
+                      <li key={whatIDid} className="dark:text-gray-400 ml-4 leading-[18px]">
+                        <Label className=" dark:text-gray-400">{whatIDid}</Label>
+                      </li>
                     )}
                   </ul>
 
