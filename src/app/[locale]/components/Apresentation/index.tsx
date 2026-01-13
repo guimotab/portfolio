@@ -6,7 +6,7 @@ import { BiLogoTailwindCss } from "react-icons/bi"
 import { BiLogoJava } from "react-icons/bi"
 import { BiLogoGit } from "react-icons/bi"
 import { TbBrandNextjs } from "react-icons/tb";
-import { FaAngular } from "react-icons/fa6";
+import { FaAngular, FaDocker } from "react-icons/fa6";
 import { Button } from "@/components/ui/button"
 import LogosTechnologies from "./LogosTechnologies"
 import { FaGithub } from "react-icons/fa";
@@ -15,6 +15,7 @@ import { FaRegLightbulb } from "react-icons/fa6";
 import Link from "next/link"
 import { useTranslations } from "next-intl"
 import { useParams } from "next/navigation"
+import { SiMongodb } from "react-icons/si"
 
 const Apresentation = () => {
   const params = useParams<{ locale: string }>()
@@ -55,6 +56,14 @@ const Apresentation = () => {
     {
       class: "before:content-['PostgreSQL']",
       jsx: BiLogoPostgresql,
+    },
+    {
+      class: "before:content-['MongoDB']",
+      jsx: SiMongodb,
+    },
+    {
+      class: "before:content-['Docker']",
+      jsx: FaDocker,
     },
   ]
 

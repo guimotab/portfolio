@@ -11,6 +11,18 @@ const AboutMe = () => {
   const t = useTranslations('AboutMe');
   const myExperience = [
     {
+      title: t("experienceSEDAMTitle"),
+      icon: <LuBuilding2 className="min-h-4 min-w-4 mt-2" />,
+      time: t("experienceSEDAMTime"),
+      desc: [
+        t("experienceSEDAMDesc1"),
+        t("experienceSEDAMDesc2"),
+        t("experienceSEDAMDesc3"),
+        t("experienceSEDAMDesc4"),
+        t("experienceSEDAMDesc5"),
+      ],
+    },
+    {
       title: t("experienceTCETitle"),
       icon: <LuBuilding2 className="min-h-4 min-w-4 mt-2" />,
       time: t("experienceTCETime"),
@@ -38,7 +50,7 @@ const AboutMe = () => {
       title: t("experienceTwoTitle"),
       icon: <HiAcademicCap className="min-h-4 min-w-4 mt-2" />,
       time: t("experienceTwoTime"),
-      desc: [t("experienceTwoDesc")],
+      // desc: [t("experienceTwoDesc")],
     },
     {
       title: t("experienceThreeTitle"),
@@ -53,9 +65,10 @@ const AboutMe = () => {
           <h1 className="font-bold text-2xl dark:text-gray-200 h-fit">{t("h1")}</h1>
 
           <div className="flex flex-col row-start-2 w-full gap-5 dark:text-gray-200">
-            <p>{t("p1")}<strong>{t("p2")}</strong></p>
-            <p>{t("p3")}<strong>{t("p4")}</strong>{t("p5")}<strong>{t("p6")}</strong>{t("p7")}</p>
-            <p>{t("p8")}<strong>{t("p9")}</strong></p>
+            <p>{t("p1")}<strong>{t("p2")}</strong>{t("p3")}<strong>{t("p4")}</strong></p>
+            <p>{t("p8")}</p>
+            <p>{t("p9")}</p>
+            <p>{t("p10")}</p>
           </div>
         </div>
 
